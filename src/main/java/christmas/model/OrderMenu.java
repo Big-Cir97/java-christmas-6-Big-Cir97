@@ -1,5 +1,6 @@
 package christmas.model;
 
+import christmas.enums.MenuInfo;
 import java.util.Objects;
 
 public class OrderMenu {
@@ -21,8 +22,7 @@ public class OrderMenu {
     }
 
     private boolean hasMenu(String name) {
-        String existMenu = "카레똥";
-        return !existMenu.equals(name);
+        return !MenuInfo.isExistMenu(name);
     }
 
     @Override
