@@ -22,11 +22,11 @@ public class OrderCount {
 
     private void validateRange(int count) {
         if (checkMinCount(count)) {
-            throw new IllegalArgumentException(String.format("주문 수량은 최소 %d개 입니다.", MIN_ORDER_COUNT));
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
 
         if (checkMaxCount(count)) {
-            throw new IllegalArgumentException(String.format("주문 수량은 최대 %d개 입니다.", MAX_ORDER_COUNT));
+            throw new IllegalArgumentException(String.format("[ERROR] 주문 수량은 최대 %d개 입니다. 다시 입력해 주세요.", MAX_ORDER_COUNT));
         }
     }
 

@@ -16,7 +16,7 @@ class OrderCountTest {
 
         assertThatThrownBy(() -> new OrderCount(minCount))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("주문 수량은 최소 1개 입니다.");
+                .hasMessageContaining("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
     }
 
     @Test
@@ -26,6 +26,6 @@ class OrderCountTest {
 
         assertThatThrownBy(() -> new OrderCount(maxCount))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("주문 수량은 최대 20개 입니다.");
+                .hasMessageContaining("[ERROR] 주문 수량은 최대 20개 입니다. 다시 입력해 주세요.");
     }
 }
