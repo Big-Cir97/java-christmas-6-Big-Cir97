@@ -1,5 +1,7 @@
 package christmas.model;
 
+import java.util.Objects;
+
 public class OrderMenu {
     private String name;
 
@@ -21,5 +23,22 @@ public class OrderMenu {
     private boolean hasMenu(String name) {
         String existMenu = "카레똥";
         return !existMenu.equals(name);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OrderMenu orderMenu = (OrderMenu) o;
+        return Objects.equals(name, orderMenu.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
