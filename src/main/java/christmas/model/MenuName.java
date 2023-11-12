@@ -3,10 +3,10 @@ package christmas.model;
 import christmas.enums.MenuInfo;
 import java.util.Objects;
 
-public class OrderMenu {
+public class MenuName {
     private String name;
 
-    public OrderMenu(String name) {
+    public MenuName(String name) {
         validate(name);
         this.name = name;
     }
@@ -33,8 +33,8 @@ public class OrderMenu {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OrderMenu orderMenu = (OrderMenu) o;
-        return Objects.equals(name, orderMenu.name);
+        MenuName menuName = (MenuName) o;
+        return Objects.equals(name, menuName.name);
     }
 
     @Override

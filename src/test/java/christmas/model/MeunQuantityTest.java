@@ -1,20 +1,18 @@
 package christmas.model;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class OrderCountTest {
+class MeunQuantityTest {
 
     @Test
     @DisplayName("주문 개수가 1 미만이면 예외를 발생시킨다.")
     void testMinCount() {
-        int minCount = 0;
+        int minQuantity = 0;
 
-        assertThatThrownBy(() -> new OrderCount(minCount))
+        assertThatThrownBy(() -> new MeunQuantity(minQuantity))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
     }
@@ -22,9 +20,9 @@ class OrderCountTest {
     @Test
     @DisplayName("주문 개수가 20 초과이면 예외를 발생시킨다.")
     void testMaxCount() {
-        int maxCount = 21;
+        int maxQuantity = 21;
 
-        assertThatThrownBy(() -> new OrderCount(maxCount))
+        assertThatThrownBy(() -> new MeunQuantity(maxQuantity))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 주문 수량은 최대 20개 입니다. 다시 입력해 주세요.");
     }

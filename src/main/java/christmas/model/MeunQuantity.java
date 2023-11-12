@@ -1,19 +1,19 @@
 package christmas.model;
 
-public class OrderCount {
+public class MeunQuantity {
 
     private static final int MIN_ORDER_COUNT = 1;
     private static final int MAX_ORDER_COUNT = 20;
 
-    private int count;
+    private int quantity;
 
-    public OrderCount(int count) {
-        validate(count);
-        this.count = count;
+    public MeunQuantity(int quantity) {
+        validate(quantity);
+        this.quantity = quantity;
     }
 
-    public int getCount() {
-        return count;
+    public int getQuantity() {
+        return quantity;
     }
 
     private void validate(int count) {
