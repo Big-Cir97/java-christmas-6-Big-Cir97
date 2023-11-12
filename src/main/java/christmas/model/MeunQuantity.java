@@ -5,7 +5,7 @@ public class MeunQuantity {
     private static final int MIN_ORDER_COUNT = 1;
     private static final int MAX_ORDER_COUNT = 20;
 
-    private int quantity;
+    private final int quantity;
 
     public MeunQuantity(int quantity) {
         validate(quantity);

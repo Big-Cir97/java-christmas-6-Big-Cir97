@@ -4,7 +4,7 @@ import christmas.enums.MenuInfo;
 import java.util.Objects;
 
 public class MenuName {
-    private String name;
+    private final String name;
 
     public MenuName(String name) {
         validate(name);
