@@ -6,13 +6,13 @@ import java.util.Map;
 
 public class OrderMenu {
 
-    private Map<MenuName, MeunQuantity> orderMenu;
+    private Map<MenuName, MenuQuantity> orderMenu;
 
     public OrderMenu() {
         this.orderMenu = new HashMap<>();
     }
 
-    public Map<MenuName, MeunQuantity> getOrderMenu() {
+    public Map<MenuName, MenuQuantity> getOrderMenu() {
         return Collections.unmodifiableMap(orderMenu);
     }
 
@@ -20,9 +20,9 @@ public class OrderMenu {
         return orderMenu.get(menuName).getQuantity();
     }
 
-    public void addMenu(MenuName menuName, MeunQuantity meunQuantity) {
+    public void addMenu(MenuName menuName, MenuQuantity menuQuantity) {
         validate(menuName);
-        orderMenu.put(menuName, meunQuantity);
+        orderMenu.put(menuName, menuQuantity);
     }
 
     private void validate(MenuName menuName) {

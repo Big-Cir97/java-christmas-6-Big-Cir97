@@ -3,7 +3,6 @@ package christmas.model;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import christmas.enums.MenuInfo;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,12 +16,12 @@ class PaymentTest {
         String soupName = "양송이수프";
         int soupQuantity = 1;
         int soupPrice = MenuInfo.MUSHROOM_SOUP.getPrice();
-        orderMenu.addMenu(new MenuName(soupName), new MeunQuantity(soupQuantity));
+        orderMenu.addMenu(new MenuName(soupName), new MenuQuantity(soupQuantity));
 
         String drinkName = "레드와인";
         int drinkQuantity = 1;
         int drinkPrice = MenuInfo.RED_WINE.getPrice();
-        orderMenu.addMenu(new MenuName(drinkName), new MeunQuantity(drinkQuantity));
+        orderMenu.addMenu(new MenuName(drinkName), new MenuQuantity(drinkQuantity));
 
         OrderDetail orderDetail = new OrderDetail(orderMenu);
         Payment payment = new Payment();

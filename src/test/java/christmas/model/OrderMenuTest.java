@@ -22,9 +22,9 @@ class OrderMenuTest {
         String name = "양송이수프";
         int quantity = 1;
         MenuName menuName = new MenuName(name);
-        MeunQuantity meunQuantity = new MeunQuantity(quantity);
+        MenuQuantity menuQuantity = new MenuQuantity(quantity);
 
-        orderMenu.addMenu(menuName, meunQuantity);
+        orderMenu.addMenu(menuName, menuQuantity);
 
         assertThat(orderMenu.getMenuQuantity(menuName)).isEqualTo(quantity);
     }
@@ -35,13 +35,13 @@ class OrderMenuTest {
         String name = "양송이수프";
         int quantity = 1;
         MenuName menuName = new MenuName(name);
-        MeunQuantity meunQuantity = new MeunQuantity(quantity);
+        MenuQuantity menuQuantity = new MenuQuantity(quantity);
 
-        orderMenu.addMenu(menuName, meunQuantity);
+        orderMenu.addMenu(menuName, menuQuantity);
 
         String duplicatedName = name;
         MenuName duplicatedMenu = new MenuName(duplicatedName);
-        Assertions.assertThatThrownBy(() -> orderMenu.addMenu(duplicatedMenu, meunQuantity))
+        Assertions.assertThatThrownBy(() -> orderMenu.addMenu(duplicatedMenu, menuQuantity))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
     }

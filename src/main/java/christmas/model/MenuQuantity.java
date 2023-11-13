@@ -3,11 +3,11 @@ package christmas.model;
 import static christmas.utils.Constants.MAX_ORDER_QUANTITY;
 import static christmas.utils.Constants.MIN_ORDER_QUANTITY;
 
-public class MeunQuantity {
+public class MenuQuantity {
 
     private final int quantity;
 
-    public MeunQuantity(int quantity) {
+    public MenuQuantity(int quantity) {
         validate(quantity);
         this.quantity = quantity;
     }

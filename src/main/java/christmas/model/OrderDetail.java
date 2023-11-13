@@ -20,7 +20,7 @@ public class OrderDetail {
 
     public Map<String, Integer> getOrderMenu() {
         Map<String, Integer> details = new HashMap<>();
-        for (Map.Entry<MenuName, MeunQuantity> entry : orderMenu.getOrderMenu().entrySet()) {
+        for (Map.Entry<MenuName, MenuQuantity> entry : orderMenu.getOrderMenu().entrySet()) {
             String menuName = entry.getKey().getName();
             int quantity = entry.getValue().getQuantity();
             details.put(menuName, quantity);
@@ -56,7 +56,7 @@ public class OrderDetail {
 
     private int calculateTotalQuantity(OrderMenu orderMenu) {
         int totalQuantity = orderMenu.getOrderMenu().values().stream()
-                .mapToInt(MeunQuantity::getQuantity)
+                .mapToInt(MenuQuantity::getQuantity)
                 .sum();
 
         return totalQuantity;

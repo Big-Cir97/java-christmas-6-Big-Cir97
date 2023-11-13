@@ -3,10 +3,8 @@ package christmas.model;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.entry;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Map;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,7 +24,7 @@ class OrderDetailTest {
         String drinkName = "레드와인";
         int drinkQuantity = 3;
 
-        orderMenu.addMenu(new MenuName(drinkName), new MeunQuantity(drinkQuantity));
+        orderMenu.addMenu(new MenuName(drinkName), new MenuQuantity(drinkQuantity));
 
         assertThatThrownBy(() -> new OrderDetail(orderMenu))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -38,11 +36,11 @@ class OrderDetailTest {
     void testOverQuantity() {
         String soupName = "양송이수프";
         int soupQuantity = 15;
-        orderMenu.addMenu(new MenuName(soupName), new MeunQuantity(soupQuantity));
+        orderMenu.addMenu(new MenuName(soupName), new MenuQuantity(soupQuantity));
 
         String drinkName = "레드와인";
         int drinkQuantity = 6;
-        orderMenu.addMenu(new MenuName(drinkName), new MeunQuantity(drinkQuantity));
+        orderMenu.addMenu(new MenuName(drinkName), new MenuQuantity(drinkQuantity));
 
         assertThatThrownBy(() -> new OrderDetail(orderMenu))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -54,11 +52,11 @@ class OrderDetailTest {
     void testDisplayOrderDetail() {
         String soupName = "양송이수프";
         int soupQuantity = 5;
-        orderMenu.addMenu(new MenuName(soupName), new MeunQuantity(soupQuantity));
+        orderMenu.addMenu(new MenuName(soupName), new MenuQuantity(soupQuantity));
 
         String drinkName = "레드와인";
         int drinkQuantity = 6;
-        orderMenu.addMenu(new MenuName(drinkName), new MeunQuantity(drinkQuantity));
+        orderMenu.addMenu(new MenuName(drinkName), new MenuQuantity(drinkQuantity));
 
         OrderDetail orderDetail = new OrderDetail(orderMenu);
         Map<String, Integer> orderMenus = orderDetail.getOrderMenu();
