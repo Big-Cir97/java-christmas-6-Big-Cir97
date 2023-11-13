@@ -48,10 +48,9 @@ public enum MenuInfo {
                 .anyMatch(existMenu -> existMenu.equals(name));
     }
 
-    public static Category getCategoryByMenuName(String name) {
+    public static MenuInfo findByMenuName(String name) {
         return Arrays.stream(MenuInfo.values())
                 .filter(menuInfo -> menuInfo.getName().equals(name))
-                .map(MenuInfo::getCategory)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("[ERROR] 존재하지 않는 메뉴입니다."));
     }

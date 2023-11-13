@@ -43,7 +43,7 @@ public class OrderDetail {
                 .get();
 
         String name = menuName.getName();
-        if (MenuInfo.getCategoryByMenuName(name) == Category.BEVERAGE) {
+        if (MenuInfo.findByMenuName(name).getCategory() == Category.BEVERAGE) {
             throw new IllegalArgumentException("[ERROR] 음료만 주문할 수 없습니다.");
         }
     }
