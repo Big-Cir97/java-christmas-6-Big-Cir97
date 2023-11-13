@@ -22,9 +22,9 @@ public class GeneralEventCalendar implements Calendar {
     public boolean isWeekend() {
         int visitDay = getDayOfWeek();
         if (visitDay == FRIDAY.getNumber() || visitDay == SATURDAY.getNumber()) {
-             return false;
+             return true;
          }
-        return true;
+        return false;
     }
 
     public boolean isSpecialDay() {
