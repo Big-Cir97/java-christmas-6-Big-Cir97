@@ -80,7 +80,7 @@ class OrderDetailTest {
         orderMenu.addMenu(new MenuName(drinkName), new MenuQuantity(drinkQuantity));
 
         OrderDetail orderDetail = new OrderDetail(orderMenu);
-        List<String> mainCourse = List.of(soupName);
+        List<MenuName> mainCourse = List.of(new MenuName(soupName));
 
         Assertions.assertThat(orderDetail.getMainMenu()).isEqualTo(mainCourse);
 
