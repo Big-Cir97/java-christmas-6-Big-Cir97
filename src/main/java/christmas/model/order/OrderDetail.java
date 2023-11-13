@@ -35,7 +35,6 @@ public class OrderDetail {
     }
 
     public List<MenuName> getMainMenu() {
-        orderMenu.getOrderMenu();
         return getOrderMenuName().entrySet().stream()
                 .filter(entry -> MenuInfo.findByMenuName(entry.getKey())
                         .getCategory() == Category.MAIN_COURSE)
