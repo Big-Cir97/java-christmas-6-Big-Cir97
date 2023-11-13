@@ -14,14 +14,14 @@ import java.time.YearMonth;
 public class GeneralEventCalendar implements Calendar {
     private final LocalDate eventDate;
 
-    public GeneralEventCalendar(int day) {
-        validate(day);
-        this.eventDate = LocalDate.of(EVENT_YEAR.getNumber(), EVENT_MONTH.getNumber(), day);
+    public GeneralEventCalendar(int visitDay) {
+        validate(visitDay);
+        this.eventDate = LocalDate.of(EVENT_YEAR.getNumber(), EVENT_MONTH.getNumber(), visitDay);
     }
 
     public boolean isWeekDays() {
-        int day = getDayOfWeek();
-        if (day == FRIDAY.getNumber() || day == SATURDAY.getNumber()) {
+        int visitDay = getDayOfWeek();
+        if (visitDay == FRIDAY.getNumber() || visitDay == SATURDAY.getNumber()) {
              return false;
          }
         return true;
@@ -35,13 +35,13 @@ public class GeneralEventCalendar implements Calendar {
         return false;
     }
 
-    private void validate(int day) {
-        validateDayRange(day);
+    private void validate(int visitDay) {
+        validateDayRange(visitDay);
     }
 
-    private void validateDayRange(int day) {
+    private void validateDayRange(int visitDay) {
         YearMonth yearMonth = YearMonth.of(EVENT_YEAR.getNumber(), EVENT_MONTH.getNumber());
-        if (day < START_DAY.getNumber() || day > yearMonth.atEndOfMonth().getDayOfMonth()) {
+        if (visitDay < START_DAY.getNumber() || visitDay > yearMonth.atEndOfMonth().getDayOfMonth()) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
         }
     }
