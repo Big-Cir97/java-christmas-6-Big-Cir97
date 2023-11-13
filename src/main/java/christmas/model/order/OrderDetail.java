@@ -5,9 +5,12 @@ import static christmas.utils.Constants.MIN_ORDER_MENU;
 
 import christmas.enums.Category;
 import christmas.enums.MenuInfo;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class OrderDetail {
 
@@ -27,6 +30,14 @@ public class OrderDetail {
         }
 
         return Collections.unmodifiableMap(details);
+    }
+
+    public List<String> getMainMenu() {
+        return getOrderMenu().entrySet().stream()
+                .filter(entry -> MenuInfo.findByMenuName(entry.getKey())
+                        .getCategory() == Category.MAIN_COURSE)
+                .map(entry -> entry.getKey())
+                .toList();
     }
 
     private void validate(OrderMenu orderMenu) {

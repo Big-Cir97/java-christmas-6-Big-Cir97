@@ -8,7 +8,9 @@ import christmas.model.order.MenuName;
 import christmas.model.order.MenuQuantity;
 import christmas.model.order.OrderDetail;
 import christmas.model.order.OrderMenu;
+import java.util.List;
 import java.util.Map;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -68,5 +70,23 @@ class OrderDetailTest {
         assertThat(orderMenus)
                 .isNotEmpty()
                 .contains(entry("양송이수프", 5), entry("레드와인", 6));
+    }
+
+    @Test
+    @DisplayName("메인 요리만 확인한다.")
+    void testCheckMainCourse() {
+        String soupName = "티본스테이크";
+        int soupQuantity = 5;
+        orderMenu.addMenu(new MenuName(soupName), new MenuQuantity(soupQuantity));
+
+        String drinkName = "레드와인";
+        int drinkQuantity = 6;
+        orderMenu.addMenu(new MenuName(drinkName), new MenuQuantity(drinkQuantity));
+
+        OrderDetail orderDetail = new OrderDetail(orderMenu);
+        List<String> mainCourse = List.of(soupName);
+
+        Assertions.assertThat(orderDetail.getMainMenu()).isEqualTo(mainCourse);
+
     }
 }
