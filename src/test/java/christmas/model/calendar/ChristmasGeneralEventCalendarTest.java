@@ -1,6 +1,7 @@
 package christmas.model.calendar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.assertj.core.api.Assertions;
@@ -18,6 +19,15 @@ class ChristmasGeneralEventCalendarTest {
         int expected = 24;
 
         assertThat(christmasEventCalendar.calculateVisitDayFromStart()).isEqualTo(expected);
+    }
+
+    @Test
+    @DisplayName("크리스마스가 아닌 날에 ChristmasEventCalendar 객체 시 예외를 발생시킨다.")
+    void testCheckChristmas() {
+        int visitDay = 26;
+
+        assertThatThrownBy(() -> new ChristmasEventCalendar(visitDay))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
 
