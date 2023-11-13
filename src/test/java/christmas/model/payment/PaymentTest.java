@@ -1,8 +1,13 @@
-package christmas.model;
+package christmas.model.payment;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import christmas.enums.MenuInfo;
+import christmas.model.order.MenuName;
+import christmas.model.order.MenuQuantity;
+import christmas.model.order.OrderDetail;
+import christmas.model.order.OrderMenu;
+import christmas.model.payment.Payment;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -1,7 +1,8 @@
-package christmas.model;
+package christmas.model.order;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import christmas.model.order.MenuName;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

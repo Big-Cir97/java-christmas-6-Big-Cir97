@@ -1,4 +1,4 @@
-package christmas.model;
+package christmas.model.order;
 
 import static christmas.utils.Constants.MAX_ORDER_QUANTITY;
 import static christmas.utils.Constants.MIN_ORDER_MENU;

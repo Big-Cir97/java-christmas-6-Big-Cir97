@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 
 public class EventCalendar {
-    private LocalDate eventDate;
+    private final LocalDate eventDate;
 
     public EventCalendar(int day) {
         validate(day);

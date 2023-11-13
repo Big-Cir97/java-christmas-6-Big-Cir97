@@ -1,9 +1,13 @@
-package christmas.model;
+package christmas.model.order;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.entry;
 
+import christmas.model.order.MenuName;
+import christmas.model.order.MenuQuantity;
+import christmas.model.order.OrderDetail;
+import christmas.model.order.OrderMenu;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
