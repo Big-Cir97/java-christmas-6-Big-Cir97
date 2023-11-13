@@ -21,7 +21,7 @@ public class ChristmasEventCalendar implements Calendar {
         this.eventDate = LocalDate.of(EVENT_YEAR.getNumber(), EVENT_MONTH.getNumber(), visitDay);
     }
 
-    public boolean isWeekDays() {
+    public boolean isWeekend() {
         int visitDay = getDayOfWeek();
         if (visitDay == FRIDAY.getNumber() || visitDay == SATURDAY.getNumber()) {
             return false;

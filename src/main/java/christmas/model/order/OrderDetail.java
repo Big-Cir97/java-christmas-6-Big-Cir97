@@ -32,11 +32,12 @@ public class OrderDetail {
         return Collections.unmodifiableMap(details);
     }
 
-    public List<String> getMainMenu() {
+    public List<MenuName> getMainMenu() {
+        orderMenu.getOrderMenu();
         return getOrderMenu().entrySet().stream()
                 .filter(entry -> MenuInfo.findByMenuName(entry.getKey())
                         .getCategory() == Category.MAIN_COURSE)
-                .map(entry -> entry.getKey())
+                .map(entry -> new MenuName(entry.getKey()))
                 .toList();
     }
 

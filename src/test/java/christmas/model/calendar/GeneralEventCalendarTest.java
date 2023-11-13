@@ -13,7 +13,7 @@ class GeneralEventCalendarTest {
     @DisplayName("지정 날짜는 주말이 아니다.")
     void testDayNotWeekend() {
         GeneralEventCalendar visitDay = new GeneralEventCalendar(25);
-        boolean actual = visitDay.isWeekDays();
+        boolean actual = visitDay.isWeekend();
 
         assertThat(actual).isTrue();
     }
