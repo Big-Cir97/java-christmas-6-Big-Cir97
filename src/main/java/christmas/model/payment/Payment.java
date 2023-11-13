@@ -7,7 +7,7 @@ public class Payment {
 
     // 할인 전 총 주문 금액
     public int beforeDiscountPayment(OrderDetail orderDetail) {
-        return orderDetail.getOrderMenu().entrySet().stream()
+        return orderDetail.getOrderMenuName().entrySet().stream()
                 .filter(entry -> MenuInfo.isExistMenu(entry.getKey()))
                 .mapToInt(entry -> {
                     MenuInfo menuInfo = MenuInfo.findByMenuName(entry.getKey());
