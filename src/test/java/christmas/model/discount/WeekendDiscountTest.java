@@ -32,7 +32,7 @@ class WeekendDiscountTest {
     }
 
     @Test
-    @DisplayName("주문에 메인 요리가 없다면 할인 금액은 0원 이다.")
+    @DisplayName("주말 주문에 메인 요리가 없다면 할인 금액은 0원 이다.")
     void testDiscountZero() {
         int visitDay = 3;
         Calendar calendar = CalendarFactory.createCalendar(visitDay);
