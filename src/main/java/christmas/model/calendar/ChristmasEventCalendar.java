@@ -8,4 +8,9 @@ public class ChristmasEventCalendar extends EventCalendar {
     public ChristmasEventCalendar(int day) {
         super(day);
     }
+
+    public int calculateVisitDayFromStart() {
+        int visitDay = getDayOfMonth();
+        return visitDay - START_DAY.getNumber();
+    }
 }
