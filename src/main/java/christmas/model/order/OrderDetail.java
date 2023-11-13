@@ -42,6 +42,15 @@ public class OrderDetail {
                 .toList();
     }
 
+    public List<MenuName> getDesertMenu() {
+        orderMenu.getOrderMenu();
+        return getOrderMenuName().entrySet().stream()
+                .filter(entry -> MenuInfo.findByMenuName(entry.getKey())
+                        .getCategory() == Category.DESSERT)
+                .map(entry -> new MenuName(entry.getKey()))
+                .toList();
+    }
+
     private void validate(OrderMenu orderMenu) {
         if (orderMenu.getOrderMenu().size() == MIN_ORDER_MENU) {
             validateOnlyBeverage(orderMenu);

@@ -69,7 +69,7 @@ class OrderDetailTest {
     }
 
     @Test
-    @DisplayName("메인 요리만 확인한다.")
+    @DisplayName("주문 목록에서 메인 메뉴를 확인한다.")
     void testCheckMainCourse() {
         String soupName = "티본스테이크";
         int soupQuantity = 5;
@@ -82,7 +82,24 @@ class OrderDetailTest {
         OrderDetail orderDetail = new OrderDetail(orderMenu);
         List<MenuName> mainCourse = List.of(new MenuName(soupName));
 
-        Assertions.assertThat(orderDetail.getMainMenu()).isEqualTo(mainCourse);
-
+        assertThat(orderDetail.getMainMenu()).isEqualTo(mainCourse);
     }
+
+    @Test
+    @DisplayName("주문 목록에서 디저트 메뉴를 확인한다.")
+    void testCheckDesert() {
+        String desertName = "초코케이크";
+        int desertQuantity = 1;
+        orderMenu.addMenu(new MenuName(desertName), new MenuQuantity(desertQuantity));
+
+        String drinkName = "레드와인";
+        int drinkQuantity = 6;
+        orderMenu.addMenu(new MenuName(drinkName), new MenuQuantity(drinkQuantity));
+
+        OrderDetail orderDetail = new OrderDetail(orderMenu);
+        List<MenuName> desert = List.of(new MenuName(desertName));
+
+        assertThat(orderDetail.getDesertMenu()).isEqualTo(desert);
+    }
+
 }
