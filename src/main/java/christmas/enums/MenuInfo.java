@@ -38,11 +38,23 @@ public enum MenuInfo {
         return price;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
     public static boolean isExistMenu(String name) {
         return Arrays.stream(MenuInfo.values())
                 .map(MenuInfo::getName)
                 .anyMatch(existMenu -> existMenu.equals(name));
     }
 
+    public static Category getCategoryByMenuName(String name) {
+        return Arrays.stream(MenuInfo.values())
+                .filter(menuInfo -> menuInfo.getName().equals(name))
+                .map(MenuInfo::getCategory)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("[ERROR] 존재하지 않는 메뉴입니다."));
+    }
+    
     // todo : 계산 메소드 추가 고려
 }

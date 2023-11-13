@@ -11,6 +11,10 @@ public class MenuName {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     private void validate(String name) {
         validateMenuName(name);
     }
