@@ -2,8 +2,6 @@ package christmas.model.calendar;
 
 import static christmas.enums.CalendarNumber.CHRISTMAS;
 
-import christmas.enums.CalendarNumber;
-
 public class CalendarFactory {
 
     public static Calendar createCalendar(int day) {
@@ -11,6 +9,6 @@ public class CalendarFactory {
             return new ChristmasEventCalendar(day);
         }
 
-        return new EventCalendar(day);
+        return new GeneralEventCalendar(day);
     }
 }

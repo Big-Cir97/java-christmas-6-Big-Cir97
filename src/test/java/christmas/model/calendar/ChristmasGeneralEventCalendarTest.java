@@ -7,7 +7,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class ChristmasEventCalendarTest {
+class ChristmasGeneralEventCalendarTest {
 
     @Test
     @DisplayName("방문 날짜와 첫 날의 차이를 계산한다.")

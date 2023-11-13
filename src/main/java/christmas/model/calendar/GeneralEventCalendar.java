@@ -11,10 +11,10 @@ import static christmas.enums.CalendarNumber.SUNDAY;
 import java.time.LocalDate;
 import java.time.YearMonth;
 
-public class EventCalendar implements Calendar {
+public class GeneralEventCalendar implements Calendar {
     private final LocalDate eventDate;
 
-    public EventCalendar(int day) {
+    public GeneralEventCalendar(int day) {
         validate(day);
         this.eventDate = LocalDate.of(EVENT_YEAR.getNumber(), EVENT_MONTH.getNumber(), day);
     }
