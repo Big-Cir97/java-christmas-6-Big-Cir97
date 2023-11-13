@@ -27,7 +27,7 @@ class WeekdaysDiscountTest {
         OrderDetail orderDetail = new OrderDetail(orderMenu);
 
         WeekdaysDiscount weekdaysDiscount = new WeekdaysDiscount(calendar, orderDetail);
-        int expected = 50_000;
+        int expected = 2_023 * quantity;
 
         assertThat(weekdaysDiscount.calculateDiscount()).isEqualTo(expected);
     }

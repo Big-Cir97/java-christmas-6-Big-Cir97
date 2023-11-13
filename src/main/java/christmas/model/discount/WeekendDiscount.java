@@ -1,8 +1,10 @@
 package christmas.model.discount;
 
+import static christmas.enums.DiscountAmount.MAIN_COURSE_DISCOUNT;
 import static christmas.enums.DiscountAmount.NON_DISCOUNT;
 import static christmas.utils.Constants.MIN_ORDER_MENU;
 
+import christmas.enums.DiscountAmount;
 import christmas.enums.MenuInfo;
 import christmas.model.calendar.Calendar;
 import christmas.model.order.MenuName;
@@ -37,8 +39,7 @@ public class WeekendDiscount implements Discount {
 
         for (MenuName menuName : mainMenu) {
             int quantityByMenu = orderDetail.getQuantityByMenu(menuName);
-            int price = MenuInfo.findByMenuName(menuName.getName()).getPrice();
-            totalPrice += (quantityByMenu * price);
+            totalPrice += (quantityByMenu * MAIN_COURSE_DISCOUNT.getDiscount());
         }
 
         return totalPrice;
