@@ -5,6 +5,9 @@ import static christmas.utils.Constants.MIN_ORDER_MENU;
 
 import christmas.enums.Category;
 import christmas.enums.MenuInfo;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OrderDetail {
 
@@ -13,6 +16,17 @@ public class OrderDetail {
     public OrderDetail(OrderMenu orderMenu) {
         validate(orderMenu);
         this.orderMenu = orderMenu;
+    }
+
+    public Map<String, Integer> getOrderMenu() {
+        Map<String, Integer> details = new HashMap<>();
+        for (Map.Entry<MenuName, MeunQuantity> entry : orderMenu.getOrderMenu().entrySet()) {
+            String menuName = entry.getKey().getName();
+            int quantity = entry.getValue().getQuantity();
+            details.put(menuName, quantity);
+        }
+
+        return Collections.unmodifiableMap(details);
     }
 
     private void validate(OrderMenu orderMenu) {
