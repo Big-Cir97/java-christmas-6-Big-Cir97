@@ -30,6 +30,10 @@ public class OrderDetail {
         return Collections.unmodifiableMap(details);
     }
 
+    public int getQuantityByMenu(MenuName menuName) {
+        return orderMenu.getMenuQuantity(menuName);
+    }
+
     public List<MenuName> getMainMenu() {
         orderMenu.getOrderMenu();
         return getOrderMenuName().entrySet().stream()
