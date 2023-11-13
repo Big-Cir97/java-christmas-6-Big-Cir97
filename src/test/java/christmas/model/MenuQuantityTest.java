@@ -24,6 +24,6 @@ class MenuQuantityTest {
 
         assertThatThrownBy(() -> new MenuQuantity(maxQuantity))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(String.format("[ERROR] 주문 수량은 최대 %d개 입니다. 다시 입력해 주세요.", maxQuantity));
+                .hasMessageContaining("[ERROR] 주문 수량은 최대 20개 입니다. 다시 입력해 주세요.");
     }
 }

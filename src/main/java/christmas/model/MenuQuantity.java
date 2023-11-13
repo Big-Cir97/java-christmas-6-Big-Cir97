@@ -27,7 +27,7 @@ public class MenuQuantity {
 
         if (checkMaxQuantity(quantity)) {
             throw new IllegalArgumentException(String.format("[ERROR] 주문 수량은 최대 %d개 입니다. 다시 입력해 주세요.",
-                    MIN_ORDER_QUANTITY));
+                    MAX_ORDER_QUANTITY));
         }
     }
 
