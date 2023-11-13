@@ -1,10 +1,10 @@
 package christmas.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import christmas.model.calendar.EventCalendar;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -28,5 +28,14 @@ class EventCalendarTest {
             EventCalendar eventCalendar = new EventCalendar(hasStarDays.get(i));
             assertThat(eventCalendar.isSpecialDay()).isTrue();
         }
+    }
+
+    @Test
+    @DisplayName("존재하지 않은 날짜는 예외를 발생시킨다.")
+    void testExistDay() {
+        int day = 32;
+        assertThatThrownBy(() -> new EventCalendar(day))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
     }
 }
