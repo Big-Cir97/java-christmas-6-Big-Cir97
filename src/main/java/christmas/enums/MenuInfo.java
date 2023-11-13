@@ -55,6 +55,6 @@ public enum MenuInfo {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("[ERROR] 존재하지 않는 메뉴입니다."));
     }
-    
+
     // todo : 계산 메소드 추가 고려
 }
