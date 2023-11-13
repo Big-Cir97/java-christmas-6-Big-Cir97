@@ -58,7 +58,7 @@ public class EventCalendar {
         return eventDate.getDayOfWeek().getValue();
     }
 
-    private int getDayOfMonth() {
+    protected int getDayOfMonth() {
         return eventDate.getDayOfMonth();
     }
 

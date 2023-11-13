@@ -1,4 +1,4 @@
-package christmas.model;
+package christmas.model.calendar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
