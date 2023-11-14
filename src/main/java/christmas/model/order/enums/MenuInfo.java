@@ -1,4 +1,4 @@
-package christmas.enums;
+package christmas.model.order.enums;
 
 import java.util.Arrays;
 

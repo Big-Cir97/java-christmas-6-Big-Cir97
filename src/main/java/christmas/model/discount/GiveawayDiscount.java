@@ -1,10 +1,10 @@
 package christmas.model.discount;
 
 
-import static christmas.enums.DiscountAmount.CAN_GIVEAWAY_DISCOUNT;
-import static christmas.enums.DiscountAmount.NON_DISCOUNT;
+import static christmas.model.discount.enums.DiscountAmount.CAN_GIVEAWAY_DISCOUNT;
+import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 
-import christmas.enums.MenuInfo;
+import christmas.model.order.enums.MenuInfo;
 
 public class GiveawayDiscount implements Discount {
 

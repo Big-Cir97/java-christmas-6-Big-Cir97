@@ -1,6 +1,6 @@
 package christmas.model.order;
 
-import christmas.enums.MenuInfo;
+import christmas.model.order.enums.MenuInfo;
 import java.util.Objects;
 
 public class MenuName {

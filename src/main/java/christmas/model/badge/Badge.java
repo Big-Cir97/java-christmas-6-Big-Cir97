@@ -1,6 +1,6 @@
 package christmas.model.badge;
 
-import christmas.enums.BadgeInfo;
+import christmas.model.badge.enums.BadgeInfo;
 
 public class Badge {
 

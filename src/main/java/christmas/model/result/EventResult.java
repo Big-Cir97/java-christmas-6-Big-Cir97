@@ -1,6 +1,6 @@
 package christmas.model.result;
 
-import christmas.enums.BadgeInfo;
+import christmas.model.badge.enums.BadgeInfo;
 import christmas.model.badge.Badge;
 
 public class EventResult {

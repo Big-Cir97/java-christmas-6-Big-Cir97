@@ -1,10 +1,10 @@
 package christmas.model.discount.facade;
 
-import static christmas.enums.DiscountAmount.CAN_DISCOUNT_AMOUNT;
-import static christmas.enums.DiscountAmount.CAN_GIVEAWAY_DISCOUNT;
-import static christmas.enums.DiscountAmount.NON_DISCOUNT;
+import static christmas.model.discount.enums.DiscountAmount.CAN_DISCOUNT_AMOUNT;
+import static christmas.model.discount.enums.DiscountAmount.CAN_GIVEAWAY_DISCOUNT;
+import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 
-import christmas.enums.MenuInfo;
+import christmas.model.order.enums.MenuInfo;
 import christmas.model.result.DiscountResult;
 import christmas.model.calendar.Calendar;
 import christmas.model.calendar.ChristmasEventCalendar;

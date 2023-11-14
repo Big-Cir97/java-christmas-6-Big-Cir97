@@ -1,11 +1,9 @@
 package christmas.model.discount;
 
-import static christmas.enums.DiscountAmount.DESERT_DISCOUNT;
-import static christmas.enums.DiscountAmount.NON_DISCOUNT;
+import static christmas.model.discount.enums.DiscountAmount.DESERT_DISCOUNT;
+import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 import static christmas.utils.Constants.MIN_ORDER_MENU;
 
-import christmas.enums.DiscountAmount;
-import christmas.enums.MenuInfo;
 import christmas.model.calendar.Calendar;
 import christmas.model.order.MenuName;
 import christmas.model.order.OrderDetail;

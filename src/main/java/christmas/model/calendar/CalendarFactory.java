@@ -1,6 +1,6 @@
 package christmas.model.calendar;
 
-import static christmas.enums.CalendarDate.CHRISTMAS;
+import static christmas.model.calendar.enums.CalendarDate.CHRISTMAS;
 
 public class CalendarFactory {
 

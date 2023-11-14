@@ -1,4 +1,4 @@
-package christmas.enums;
+package christmas.model.calendar.enums;
 
 public enum CalendarDate {
 

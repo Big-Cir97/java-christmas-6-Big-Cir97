@@ -1,4 +1,4 @@
-package christmas.enums;
+package christmas.model.order.enums;
 
 public enum Category {
     APPETIZER("에피타이저"),

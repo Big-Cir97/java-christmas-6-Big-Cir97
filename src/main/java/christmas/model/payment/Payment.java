@@ -1,7 +1,6 @@
 package christmas.model.payment;
 
-import christmas.enums.MenuInfo;
-import christmas.model.discount.facade.DiscountFacade;
+import christmas.model.order.enums.MenuInfo;
 import christmas.model.order.OrderDetail;
 
 public class Payment {

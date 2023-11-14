@@ -3,8 +3,8 @@ package christmas.model.order;
 import static christmas.utils.Constants.MAX_ORDER_QUANTITY;
 import static christmas.utils.Constants.MIN_ORDER_MENU;
 
-import christmas.enums.Category;
-import christmas.enums.MenuInfo;
+import christmas.model.order.enums.Category;
+import christmas.model.order.enums.MenuInfo;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;

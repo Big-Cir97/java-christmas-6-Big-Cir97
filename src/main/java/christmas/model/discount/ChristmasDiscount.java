@@ -1,7 +1,7 @@
 package christmas.model.discount;
 
-import static christmas.enums.DiscountAmount.BASIC_CHRISTMAS_DISCOUNT;
-import static christmas.enums.DiscountAmount.DAY_DISCOUNT;
+import static christmas.model.discount.enums.DiscountAmount.BASIC_CHRISTMAS_DISCOUNT;
+import static christmas.model.discount.enums.DiscountAmount.DAY_DISCOUNT;
 
 import christmas.model.calendar.Calendar;
 import christmas.model.calendar.ChristmasEventCalendar;

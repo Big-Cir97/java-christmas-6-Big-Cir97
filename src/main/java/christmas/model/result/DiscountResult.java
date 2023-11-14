@@ -1,6 +1,6 @@
 package christmas.model.result;
 
-import static christmas.enums.DiscountAmount.NON_DISCOUNT;
+import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 
 public class DiscountResult {
 

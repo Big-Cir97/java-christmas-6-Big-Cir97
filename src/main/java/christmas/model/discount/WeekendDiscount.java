@@ -1,15 +1,12 @@
 package christmas.model.discount;
 
-import static christmas.enums.DiscountAmount.MAIN_COURSE_DISCOUNT;
-import static christmas.enums.DiscountAmount.NON_DISCOUNT;
+import static christmas.model.discount.enums.DiscountAmount.MAIN_COURSE_DISCOUNT;
+import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 import static christmas.utils.Constants.MIN_ORDER_MENU;
 
-import christmas.enums.DiscountAmount;
-import christmas.enums.MenuInfo;
 import christmas.model.calendar.Calendar;
 import christmas.model.order.MenuName;
 import christmas.model.order.OrderDetail;
-import christmas.utils.Constants;
 import java.util.List;
 
 public class WeekendDiscount implements Discount {

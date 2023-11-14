@@ -1,4 +1,4 @@
-package christmas.enums;
+package christmas.model.discount.enums;
 
 public enum DiscountAmount {
 

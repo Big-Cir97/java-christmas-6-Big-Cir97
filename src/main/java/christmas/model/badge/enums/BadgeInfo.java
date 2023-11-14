@@ -1,4 +1,4 @@
-package christmas.enums;
+package christmas.model.badge.enums;
 
 import java.util.Arrays;
 
