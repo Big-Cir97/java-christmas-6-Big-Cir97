@@ -57,10 +57,9 @@ class PaymentTest {
         OrderDetail orderDetail = new OrderDetail(orderMenu);
         Payment payment = new Payment();
         int before = payment.beforeDiscountPayment(orderDetail);
-        System.out.println(before);
         int discount = 31_246;
 
-        int expected = 14_2000 - 31_246;
+        int expected = 14_2000 - 31_246 + 25_000;
         assertThat(payment.afterDiscountPayment(before, discount)).isEqualTo(expected);
 
     }
