@@ -30,6 +30,7 @@ import christmas.model.calendar.Calendar;
 import christmas.model.order.OrderDetail;
 import christmas.model.result.EventResult;
 import christmas.utils.Constants;
+import christmas.utils.Converter;
 import java.text.DecimalFormat;
 import java.util.Map;
 
@@ -66,7 +67,7 @@ public class OutputView {
 
     private void outputBeforeDiscountOrderAmount(EventResult eventResult) {
         String output = OUTPUT_BEFORE_DISCOUNT_TOTAL_AMOUNT_MESSAGE.getMessage() + NEW_LINE
-                + formatComma(eventResult.getNonDiscountOrderAmount()) + AMOUNT_SUFFIX + NEW_LINE;
+                + Converter.toThousandWonFormmat(eventResult.getNonDiscountOrderAmount()) + AMOUNT_SUFFIX + NEW_LINE;
         System.out.println(output);
     }
 
@@ -106,17 +107,19 @@ public class OutputView {
         StringBuilder output = new StringBuilder();
         output.append(OUTPUT_TOTAL_DISCOUNT_AMOUNT_MESSAGE.getMessage()).append(NEW_LINE);
         if (totalDiscount == NON_DISCOUNT.getDiscount()) {
-            output.append(formatComma(totalDiscount)).append(AMOUNT_SUFFIX).append(NEW_LINE);
+            output.append(Converter.toThousandWonFormmat(totalDiscount))
+                  .append(AMOUNT_SUFFIX).append(NEW_LINE);
             System.out.println(output);
             return;
         }
-        output.append(MINUS_OPERATOR).append(formatComma(totalDiscount)).append(AMOUNT_SUFFIX).append(NEW_LINE);
+        output.append(MINUS_OPERATOR).append(Converter.toThousandWonFormmat(totalDiscount))
+              .append(AMOUNT_SUFFIX).append(NEW_LINE);
         System.out.println(output);
     }
 
     private void outputAfterDiscountAmount(EventResult eventResult, int totalDiscount) {
         String output = OUTPUT_AFTER_DISCOUNT_MESSAGE.getMessage() + NEW_LINE
-                + formatComma(
+                + Converter.toThousandWonFormmat(
                         eventResult.getPayment().afterDiscountPayment(
                                 eventResult.getNonDiscountOrderAmount(), totalDiscount)
                 )
@@ -138,7 +141,7 @@ public class OutputView {
             return EMPTY;
         }
         return OUTPUT_CHRISTMAS_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + formatComma(eventResult.getChristmasDiscount()) + AMOUNT_SUFFIX
+                + Converter.toThousandWonFormmat(eventResult.getChristmasDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
     }
 
@@ -147,7 +150,7 @@ public class OutputView {
             return EMPTY;
         }
         return OUTPUT_WEEKSDAYS_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + formatComma(eventResult.getWeeksDaysDiscount()) + AMOUNT_SUFFIX
+                + Converter.toThousandWonFormmat(eventResult.getWeeksDaysDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
     }
 
@@ -156,7 +159,7 @@ public class OutputView {
             return EMPTY;
         }
         return OUTPUT_WEEKEND_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + formatComma(eventResult.getWeekendDiscount()) + AMOUNT_SUFFIX
+                + Converter.toThousandWonFormmat(eventResult.getWeekendDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
     }
 
@@ -165,7 +168,7 @@ public class OutputView {
             return EMPTY;
         }
         return OUTPUT_SPECIAL_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + formatComma(eventResult.getSpecialDiscount()) + AMOUNT_SUFFIX
+                + Converter.toThousandWonFormmat(eventResult.getSpecialDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
     }
 
@@ -174,12 +177,7 @@ public class OutputView {
             return EMPTY;
         }
         return OUTPUT_GIVEAWAY_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + formatComma(eventResult.getGiveawayDiscount()) + AMOUNT_SUFFIX
+                + Converter.toThousandWonFormmat(eventResult.getGiveawayDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
-    }
-
-    private String formatComma(int value) {
-        DecimalFormat decimalFormat = new DecimalFormat(Constants.AMOUNT_FORMAT);
-        return decimalFormat.format(value);
     }
 }
