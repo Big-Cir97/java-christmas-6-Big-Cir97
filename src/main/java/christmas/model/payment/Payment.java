@@ -1,5 +1,9 @@
 package christmas.model.payment;
 
+import static christmas.model.discount.enums.DiscountAmount.CAN_GIVEAWAY_DISCOUNT;
+import static christmas.model.order.enums.MenuInfo.CHAMPAGNE;
+
+import christmas.model.discount.enums.DiscountAmount;
 import christmas.model.order.enums.MenuInfo;
 import christmas.model.order.OrderDetail;
 
@@ -16,8 +20,10 @@ public class Payment {
                 .sum();
     }
 
-    // 할인 후 총 주문 금액
     public int afterDiscountPayment(int beforeDiscountPayment, int totalDiscountPayment) {
-        return beforeDiscountPayment - totalDiscountPayment;
+        if (beforeDiscountPayment < CAN_GIVEAWAY_DISCOUNT.getDiscount()) {
+            return beforeDiscountPayment - totalDiscountPayment;
+        }
+        return beforeDiscountPayment - totalDiscountPayment + CHAMPAGNE.getPrice();
     }
 }
