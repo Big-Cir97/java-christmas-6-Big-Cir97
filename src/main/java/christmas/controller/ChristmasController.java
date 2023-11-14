@@ -34,22 +34,22 @@ public class ChristmasController {
         OrderDetail orderDetail = initOrderDetail();
         Payment payment = new Payment();
 
-        int nonDiscountTotalOrderAmount = payment.beforeDiscountPayment(orderDetail);
+        inProgress(calendar, orderDetail, payment);
+    }
+
+    private void inProgress(Calendar calendar, OrderDetail orderDetail, Payment payment) {
+        int nonDiscountOrderAmount = payment.beforeDiscountPayment(orderDetail);
 
         DiscountResult discountResult = new DiscountResult();
         DiscountFacade discountFacade = new DiscountFacade(calendar, orderDetail);
         int totalDiscount = discountFacade.getTotalDiscount(payment, discountResult);
 
         BadgeInfo badgeName = new Badge().getBadgeName(totalDiscount);
-        EventResult eventResult = new EventResult(discountResult);
+        EventResult eventResult = new EventResult(discountResult, payment, nonDiscountOrderAmount);
 
         outputView.outputPreview(calendar);
         outputView.outputOrderMenu(orderDetail);
-        outputView.outputBeforeDiscountOrderAmount(nonDiscountTotalOrderAmount);
-        outputView.outputGiveaway(eventResult);
-        outputView.outputDiscountList(eventResult);
-        outputView.outputTotalDiscount(totalDiscount);
-        outputView.outputAfterDiscountAmount(payment, nonDiscountTotalOrderAmount, totalDiscount);
+        outputView.outputRelationDiscount(eventResult, totalDiscount);
         outputView.outputBadge(badgeName);
     }
 

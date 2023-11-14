@@ -2,12 +2,28 @@ package christmas.model.result;
 
 import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 
+import christmas.model.payment.Payment;
+
 public class EventResult {
 
     private final DiscountResult discountResult;
 
-    public EventResult(DiscountResult discountResult) {
+    private final Payment payment;
+
+    private final int nonDiscountOrderAmount;
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public int getNonDiscountOrderAmount() {
+        return nonDiscountOrderAmount;
+    }
+
+    public EventResult(DiscountResult discountResult, Payment payment, int nonDiscountOrderAmount) {
         this.discountResult = discountResult;
+        this.payment = payment;
+        this.nonDiscountOrderAmount = nonDiscountOrderAmount;
     }
 
     public int getChristmasDiscount() {

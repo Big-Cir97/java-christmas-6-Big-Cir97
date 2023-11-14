@@ -28,7 +28,6 @@ import static christmas.view.enums.OutputMessage.OUTPUT_WEEKSDAYS_DISCOUNT_MESSA
 import christmas.model.badge.enums.BadgeInfo;
 import christmas.model.calendar.Calendar;
 import christmas.model.order.OrderDetail;
-import christmas.model.payment.Payment;
 import christmas.model.result.EventResult;
 import christmas.utils.Constants;
 import java.text.DecimalFormat;
@@ -57,13 +56,21 @@ public class OutputView {
         System.out.println(output);
     }
 
-    public void outputBeforeDiscountOrderAmount(int totalOrderAmount) {
+    public void outputRelationDiscount(EventResult eventResult, int totalDiscount) {
+        outputBeforeDiscountOrderAmount(eventResult);
+        outputGiveaway(eventResult);
+        outputDiscountList(eventResult);
+        outputTotalDiscount(totalDiscount);
+        outputAfterDiscountAmount(eventResult, totalDiscount);
+    }
+
+    private void outputBeforeDiscountOrderAmount(EventResult eventResult) {
         String output = OUTPUT_BEFORE_DISCOUNT_TOTAL_AMOUNT_MESSAGE.getMessage() + NEW_LINE
-                + formatComma(totalOrderAmount) + AMOUNT_SUFFIX + NEW_LINE;
+                + formatComma(eventResult.getNonDiscountOrderAmount()) + AMOUNT_SUFFIX + NEW_LINE;
         System.out.println(output);
     }
 
-    public void outputGiveaway(EventResult eventResult) {
+    private void outputGiveaway(EventResult eventResult) {
         StringBuilder output = new StringBuilder();
         output.append(OUTPUT_GIVEAWAY_MENU_MESSAGE.getMessage()).append(NEW_LINE);
 
@@ -78,7 +85,7 @@ public class OutputView {
         System.out.println(output);
     }
 
-    public void outputDiscountList(EventResult eventResult) {
+    private void outputDiscountList(EventResult eventResult) {
         StringBuilder output = new StringBuilder();
         output.append(OUTPUT_DISCOUNT_HISTORY_MESSAGE.getMessage()).append(NEW_LINE);
 
@@ -95,7 +102,7 @@ public class OutputView {
         System.out.println(output);
     }
 
-    public void outputTotalDiscount(int totalDiscount) {
+    private void outputTotalDiscount(int totalDiscount) {
         StringBuilder output = new StringBuilder();
         output.append(OUTPUT_TOTAL_DISCOUNT_AMOUNT_MESSAGE.getMessage()).append(NEW_LINE);
         if (totalDiscount == NON_DISCOUNT.getDiscount()) {
@@ -107,9 +114,12 @@ public class OutputView {
         System.out.println(output);
     }
 
-    public void outputAfterDiscountAmount(Payment payment, int beforeDiscountAmount, int totalDiscount) {
+    private void outputAfterDiscountAmount(EventResult eventResult, int totalDiscount) {
         String output = OUTPUT_AFTER_DISCOUNT_MESSAGE.getMessage() + NEW_LINE
-                + formatComma(payment.afterDiscountPayment(beforeDiscountAmount, totalDiscount))
+                + formatComma(
+                        eventResult.getPayment().afterDiscountPayment(
+                                eventResult.getNonDiscountOrderAmount(), totalDiscount)
+                )
                 + AMOUNT_SUFFIX + NEW_LINE;
         System.out.println(output);
     }
