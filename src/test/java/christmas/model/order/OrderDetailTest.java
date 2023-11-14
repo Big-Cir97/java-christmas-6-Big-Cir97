@@ -46,7 +46,7 @@ class OrderDetailTest {
 
         assertThatThrownBy(() -> new OrderDetail(orderMenu))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR] 메뉴는 최대 20개까지만 주문할 수 있습니다.");
+                .hasMessageContaining("주문 수량은 최대 20개 입니다. 다시 입력해 주세요.");
     }
 
     @Test
