@@ -51,7 +51,7 @@ public class ChristmasEventCalendar implements Calendar {
 
     private void validateDayRange(int visitDay) {
         if (visitDay < START_DAY.getNumber() || visitDay > CHRISTMAS.getNumber()) {
-            throw new IllegalArgumentException("[ERROR] 크리스마스는 26일 이전입니다.");
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
         }
     }
 

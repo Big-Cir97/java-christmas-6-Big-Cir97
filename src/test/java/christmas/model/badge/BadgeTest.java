@@ -17,7 +17,7 @@ class BadgeTest {
 
         String expected = "별";
 
-        assertThat(badge.getBadgeName(totalDiscountPrice)).isEqualTo(expected);
+        assertThat(badge.getBadgeName(totalDiscountPrice).getName()).isEqualTo(expected);
     }
 
     @Test
@@ -28,7 +28,7 @@ class BadgeTest {
 
         String expected = "트리";
 
-        assertThat(badge.getBadgeName(totalDiscountPrice)).isEqualTo(expected);
+        assertThat(badge.getBadgeName(totalDiscountPrice).getName()).isEqualTo(expected);
     }
 
     @Test
@@ -39,7 +39,7 @@ class BadgeTest {
 
         String expected = "산타";
 
-        assertThat(badge.getBadgeName(totalDiscountPrice)).isEqualTo(expected);
+        assertThat(badge.getBadgeName(totalDiscountPrice).getName()).isEqualTo(expected);
     }
 
     @Test
@@ -50,7 +50,7 @@ class BadgeTest {
 
         String expected = "없음";
 
-        assertThat(badge.getBadgeName(totalDiscountPrice)).isEqualTo(expected);
+        assertThat(badge.getBadgeName(totalDiscountPrice).getName()).isEqualTo(expected);
     }
 
 }
