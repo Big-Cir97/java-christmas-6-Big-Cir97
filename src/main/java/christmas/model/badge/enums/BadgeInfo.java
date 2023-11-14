@@ -23,4 +23,8 @@ public enum BadgeInfo {
                 .findFirst()
                 .orElse(NON_BADGE);
     }
+
+    public String getName() {
+        return name;
+    }
 }
