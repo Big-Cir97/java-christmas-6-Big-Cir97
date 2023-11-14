@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class OrderMenu {
 
-    private Map<MenuName, MenuQuantity> orderMenu;
+    private final Map<MenuName, MenuQuantity> orderMenu;
 
     public OrderMenu() {
         this.orderMenu = new HashMap<>();
