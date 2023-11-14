@@ -5,8 +5,6 @@ import static christmas.exception.ErrorType.INVALID_MENU_QUANTITY_UNDER_ONE;
 import static christmas.utils.Constants.MAX_ORDER_QUANTITY;
 import static christmas.utils.Constants.MIN_ORDER_QUANTITY;
 
-import christmas.exception.ErrorType;
-
 public class MenuQuantity {
 
     private final int quantity;

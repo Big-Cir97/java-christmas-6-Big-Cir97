@@ -4,7 +4,6 @@ import static christmas.exception.ErrorType.INVALID_MENU_QUANTITY;
 import static christmas.exception.ErrorType.INVALID_VISIT_DAY_NOT_NUMERIC;
 import static christmas.utils.Constants.COMMA;
 
-import christmas.exception.ErrorType;
 import christmas.utils.Converter;
 import java.util.Arrays;
 import java.util.List;

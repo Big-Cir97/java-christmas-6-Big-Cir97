@@ -9,7 +9,6 @@ import static christmas.model.calendar.enums.CalendarDate.SATURDAY;
 import static christmas.model.calendar.enums.CalendarDate.START_DAY;
 import static christmas.model.calendar.enums.CalendarDate.SUNDAY;
 
-import christmas.exception.ErrorType;
 import java.time.LocalDate;
 
 public class ChristmasEventCalendar implements Calendar {
@@ -38,7 +37,6 @@ public class ChristmasEventCalendar implements Calendar {
         if (isChristmas() || isSunday()) {
             return true;
         }
-
         return false;
     }
 

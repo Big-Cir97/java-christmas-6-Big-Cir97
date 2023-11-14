@@ -5,7 +5,6 @@ import static christmas.exception.ErrorType.INVALID_MENU_ONLY_DRINK;
 import static christmas.utils.Constants.MAX_ORDER_QUANTITY;
 import static christmas.utils.Constants.MIN_ORDER_MENU;
 
-import christmas.exception.ErrorType;
 import christmas.model.order.enums.Category;
 import christmas.model.order.enums.MenuInfo;
 import java.util.Collections;

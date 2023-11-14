@@ -2,11 +2,11 @@ package christmas.model.order;
 
 import static christmas.exception.ErrorType.INVALID_MENU_NAME;
 
-import christmas.exception.ErrorType;
 import christmas.model.order.enums.MenuInfo;
 import java.util.Objects;
 
 public class MenuName {
+
     private final String name;
 
     public MenuName(String name) {

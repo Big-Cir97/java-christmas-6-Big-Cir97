@@ -3,9 +3,8 @@ package christmas.model.payment;
 import static christmas.model.discount.enums.DiscountAmount.CAN_GIVEAWAY_DISCOUNT;
 import static christmas.model.order.enums.MenuInfo.CHAMPAGNE;
 
-import christmas.model.discount.enums.DiscountAmount;
-import christmas.model.order.enums.MenuInfo;
 import christmas.model.order.OrderDetail;
+import christmas.model.order.enums.MenuInfo;
 
 public class Payment {
 

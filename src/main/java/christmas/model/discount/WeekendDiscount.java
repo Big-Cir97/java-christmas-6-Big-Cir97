@@ -12,6 +12,7 @@ import java.util.List;
 public class WeekendDiscount implements Discount {
 
     private final Calendar calendar;
+
     private final OrderDetail orderDetail;
 
     public WeekendDiscount(Calendar calendar, OrderDetail orderDetail) {

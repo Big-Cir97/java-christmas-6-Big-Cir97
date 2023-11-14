@@ -18,6 +18,7 @@ import christmas.model.payment.Payment;
 public class DiscountFacade {
 
     private final Calendar calendar;
+
     private final OrderDetail orderDetail;
 
     public DiscountFacade(Calendar calendar, OrderDetail orderDetail) {
@@ -79,7 +80,6 @@ public class DiscountFacade {
         }
         return MenuInfo.CHAMPAGNE.getPrice();
     }
-
 
     private boolean includeChristmasDiscount() {
         if (calendar instanceof ChristmasEventCalendar) {

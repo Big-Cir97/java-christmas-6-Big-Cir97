@@ -1,6 +1,7 @@
 package christmas.model.order.enums;
 
 public enum Category {
+
     APPETIZER("에피타이저"),
     MAIN_COURSE("메인"),
     DESSERT("디저트"),

@@ -2,7 +2,6 @@ package christmas.model.order;
 
 import static christmas.exception.ErrorType.INVALID_MENU_NAME;
 
-import christmas.exception.ErrorType;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;

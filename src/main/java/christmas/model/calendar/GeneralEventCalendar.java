@@ -9,11 +9,11 @@ import static christmas.model.calendar.enums.CalendarDate.SATURDAY;
 import static christmas.model.calendar.enums.CalendarDate.START_DAY;
 import static christmas.model.calendar.enums.CalendarDate.SUNDAY;
 
-import christmas.exception.ErrorType;
 import java.time.LocalDate;
 import java.time.YearMonth;
 
 public class GeneralEventCalendar implements Calendar {
+
     private final LocalDate eventDate;
 
     public GeneralEventCalendar(int visitDay) {
@@ -29,8 +29,8 @@ public class GeneralEventCalendar implements Calendar {
     public boolean isWeekend() {
         int visitDay = getDayOfWeek();
         if (visitDay == FRIDAY.getNumber() || visitDay == SATURDAY.getNumber()) {
-             return true;
-         }
+            return true;
+        }
         return false;
     }
 

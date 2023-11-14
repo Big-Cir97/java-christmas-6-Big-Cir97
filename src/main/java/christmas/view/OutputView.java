@@ -3,7 +3,6 @@ package christmas.view;
 import static christmas.model.calendar.enums.CalendarDate.EVENT_MONTH;
 import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 import static christmas.model.order.enums.MenuInfo.CHAMPAGNE;
-import static christmas.utils.Constants.AMOUNT_FORMAT;
 import static christmas.utils.Constants.AMOUNT_SUFFIX;
 import static christmas.utils.Constants.BLANK;
 import static christmas.utils.Constants.EMPTY;
@@ -32,12 +31,10 @@ import christmas.model.order.OrderDetail;
 import christmas.model.payment.Payment;
 import christmas.model.result.EventResult;
 import christmas.utils.Constants;
-import christmas.view.enums.OutputMessage;
 import java.text.DecimalFormat;
 import java.util.Map;
 
 public class OutputView {
-
 
     public void outputPreview(Calendar calendar) {
         StringBuilder sb = new StringBuilder();
@@ -78,7 +75,6 @@ public class OutputView {
             System.out.println(sb);
             return;
         }
-
         sb.append(CHAMPAGNE.getName()).append(BLANK)
                 .append(GIVEAWAY_QUANTITY).append(QUANTITY_SUFFIX).append(NEW_LINE);
         System.out.println(sb);

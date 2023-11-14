@@ -10,6 +10,7 @@ public enum BadgeInfo {
     NON_BADGE("없음", 0);
 
     private final String name;
+
     private final int price;
 
     BadgeInfo(String name, int price) {

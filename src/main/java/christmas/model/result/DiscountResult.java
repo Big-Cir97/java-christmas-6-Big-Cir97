@@ -5,9 +5,13 @@ import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 public class DiscountResult {
 
     private int christmasDiscount;
+
     private int weeksDaysDiscount;
+
     private int weekendDiscount;
+
     private int specialDiscount;
+
     private int giveawayDiscount;
 
     public DiscountResult() {

@@ -21,6 +21,7 @@ import java.util.List;
 public class ChristmasController {
 
     private final InputView inputView;
+
     private final OutputView outputView;
 
     public ChristmasController(InputView inputView, OutputView outputView) {
@@ -57,7 +58,6 @@ public class ChristmasController {
                 () -> CalendarFactory.createCalendar(inputView.inputVisitDay()),
                 ex -> outputView.outputErrorMessage(ex)
         );
-
         return initializer.initialize();
     }
 
@@ -70,7 +70,6 @@ public class ChristmasController {
                 },
                 ex -> outputView.outputErrorMessage(ex)
         );
-
         return initializer.initialize();
     }
 

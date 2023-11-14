@@ -2,7 +2,6 @@ package christmas.model.order.enums;
 
 import static christmas.exception.ErrorType.INVALID_MENU_NOT_EXIST;
 
-import christmas.exception.ErrorType;
 import java.util.Arrays;
 
 public enum MenuInfo {
@@ -24,7 +23,9 @@ public enum MenuInfo {
     CHAMPAGNE("샴페인", 25_000, Category.BEVERAGE);
 
     private final String name;
+
     private final int price;
+
     private final Category category;
 
     MenuInfo(String name, int price, Category category) {

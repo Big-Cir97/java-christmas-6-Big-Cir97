@@ -1,7 +1,5 @@
 package christmas.utils;
 
-import java.util.List;
-
 public class Converter {
 
     public static int toInteger(String input) {

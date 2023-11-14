@@ -4,7 +4,9 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class DataInitializer<T> {
+
     private final Supplier<T> supplier;
+
     private final Consumer<IllegalArgumentException> exceptionHandler;
 
     public DataInitializer(Supplier<T> supplier, Consumer<IllegalArgumentException> exceptionHandler) {

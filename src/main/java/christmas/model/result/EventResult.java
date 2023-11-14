@@ -34,7 +34,6 @@ public class EventResult {
         if (isAllDiscountZero()) {
             return true;
         }
-
         return false;
     }
 
