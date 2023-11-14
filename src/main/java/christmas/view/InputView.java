@@ -7,6 +7,7 @@ import static christmas.view.enums.InputMessage.INPUT_VISIT_DAY_MESSAGE;
 import camp.nextstep.edu.missionutils.Console;
 import christmas.utils.Converter;
 import christmas.validation.InputValidator;
+import java.util.List;
 import java.util.Map;
 
 public class InputView {
@@ -17,7 +18,7 @@ public class InputView {
         this.inputValidator = inputValidator;
     }
 
-    public int inputVistiDay() {
+    public int inputVisitDay() {
         System.out.println(INPUT_START_MESSAGE.getMessage());
         System.out.println(INPUT_VISIT_DAY_MESSAGE.getMessage());
 
@@ -26,7 +27,7 @@ public class InputView {
         return Converter.toInteger(input);
     }
 
-    public Map<String, Integer> inputOrderMenu() {
+    public List<String> inputOrderMenu() {
         System.out.println(INPUT_ORDER_MENU_MESSAGE.getMessage());
 
         String input = Console.readLine();
