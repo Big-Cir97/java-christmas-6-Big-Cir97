@@ -110,7 +110,7 @@ public class OutputView {
     public void outputAfterDiscountAmount(Payment payment, int beforeDiscountAmount, int totalDiscount) {
         String output = OUTPUT_AFTER_DISCOUNT_MESSAGE.getMessage() + NEW_LINE
                 + formatComma(payment.afterDiscountPayment(beforeDiscountAmount, totalDiscount))
-                + NEW_LINE;
+                + AMOUNT_SUFFIX + NEW_LINE;
         System.out.println(output);
     }
 
