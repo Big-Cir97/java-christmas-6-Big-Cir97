@@ -1,7 +1,9 @@
 package christmas.model.result;
 
-import christmas.model.badge.enums.BadgeInfo;
+import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
+
 import christmas.model.badge.Badge;
+import christmas.model.badge.enums.BadgeInfo;
 
 public class EventResult {
 
@@ -35,14 +37,20 @@ public class EventResult {
         return discountResult.getGiveawayDiscount();
     }
 
-//    public int getChristmasDiscount() {
-//        return CHRISTMAS_DISCOUNT_RESULT + MINUS_OPERATOR + formmatComma() + RESULT_SUFFIX;
-//    }
-//
-//
-//
-//    private String formmatComma(int value) {
-//        DecimalFormat decimalFormat = new DecimalFormat(Constants.AMOUNT_FORMAT);
-//        return decimalFormat.format(value);
-//    }
+    public boolean checkNonDiscount() {
+        if (isAllDiscountZero()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean isAllDiscountZero() {
+        return getChristmasDiscount() == NON_DISCOUNT.getDiscount() &&
+                getChristmasDiscount() == getWeekendDiscount() &&
+                getChristmasDiscount() == getWeekendDiscount() &&
+                getChristmasDiscount() == getSpecialDiscount() &&
+                getChristmasDiscount() == getGiveawayDiscount();
+    }
+
 }
