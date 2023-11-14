@@ -1,7 +1,7 @@
 package christmas.model.discount;
 
 
-import static christmas.enums.DiscountAmount.GIVEAWAY_DISCOUNT;
+import static christmas.enums.DiscountAmount.CAN_GIVEAWAY_DISCOUNT;
 import static christmas.enums.DiscountAmount.NON_DISCOUNT;
 
 import christmas.enums.MenuInfo;
@@ -16,7 +16,7 @@ public class GiveawayDiscount implements Discount {
 
     @Override
     public int calculateDiscount() {
-        if (totalOrderAmount >= GIVEAWAY_DISCOUNT.getDiscount()) {
+        if (totalOrderAmount >= CAN_GIVEAWAY_DISCOUNT.getDiscount()) {
             return MenuInfo.CHRISTMAS_PASTA.getPrice();
         }
         return NON_DISCOUNT.getDiscount();
