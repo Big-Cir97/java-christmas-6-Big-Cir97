@@ -15,6 +15,8 @@ public abstract class Constants {
     public static final String AMOUNT_FORMAT = "#,###";
     public static final String RESULT_SUFFIX = "원";
 
+    public static final String COMMA = ",";
+
     private Constants() {
         throw new NullPointerException("[ERROR] 리플렉션을 제한합니다.");
     }
