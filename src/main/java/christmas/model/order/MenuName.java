@@ -1,5 +1,8 @@
 package christmas.model.order;
 
+import static christmas.exception.ErrorType.INVALID_MENU_NAME;
+
+import christmas.exception.ErrorType;
 import christmas.model.order.enums.MenuInfo;
 import java.util.Objects;
 
@@ -21,7 +24,7 @@ public class MenuName {
 
     private void validateMenuName(String name) {
         if (hasMenu(name)) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(INVALID_MENU_NAME.getMessage());
         }
     }
 

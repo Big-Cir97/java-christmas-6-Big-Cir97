@@ -1,5 +1,8 @@
 package christmas.model.order;
 
+import static christmas.exception.ErrorType.INVALID_MENU_NAME;
+
+import christmas.exception.ErrorType;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +34,7 @@ public class OrderMenu {
 
     private void validateDuplicateMenuName(MenuName menuName) {
         if (orderMenu.containsKey(menuName)) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(INVALID_MENU_NAME.getMessage());
         }
     }
 }

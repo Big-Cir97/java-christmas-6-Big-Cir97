@@ -2,8 +2,6 @@ package christmas.view.enums;
 
 import static christmas.model.calendar.enums.CalendarDate.EVENT_MONTH;
 
-import christmas.model.calendar.enums.CalendarDate;
-
 public enum InputMessage {
 
     INPUT_START_MESSAGE(String.format("안녕하세요! 우테코 식당 %d월 이벤트 플래너입니다.", EVENT_MONTH.getNumber())),

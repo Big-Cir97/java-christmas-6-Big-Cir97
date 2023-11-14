@@ -1,7 +1,10 @@
 package christmas.validation;
 
+import static christmas.exception.ErrorType.INVALID_MENU_QUANTITY;
+import static christmas.exception.ErrorType.INVALID_VISIT_DAY_NOT_NUMERIC;
 import static christmas.utils.Constants.COMMA;
 
+import christmas.exception.ErrorType;
 import christmas.utils.Converter;
 import java.util.Arrays;
 import java.util.List;
@@ -24,9 +27,9 @@ public class InputValidator {
         return inputSplit;
     }
 
-    private void validateDayNumeric(String input) {
+    private void validateDayNumeric(String input)  {
         if (!NUMBER_PATTERN.matcher(input).matches()) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(INVALID_VISIT_DAY_NOT_NUMERIC.getMessage());
         }
     }
 
@@ -44,7 +47,7 @@ public class InputValidator {
 
     private void validateQuantityNumeric(String input) {
         if (!NUMBER_PATTERN.matcher(input).matches()) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(INVALID_MENU_QUANTITY.getMessage());
         }
     }
 

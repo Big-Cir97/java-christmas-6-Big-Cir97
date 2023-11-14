@@ -1,7 +1,11 @@
 package christmas.model.order;
 
+import static christmas.exception.ErrorType.INVALID_MAX_MENU_QUANTITY;
+import static christmas.exception.ErrorType.INVALID_MENU_QUANTITY_UNDER_ONE;
 import static christmas.utils.Constants.MAX_ORDER_QUANTITY;
 import static christmas.utils.Constants.MIN_ORDER_QUANTITY;
+
+import christmas.exception.ErrorType;
 
 public class MenuQuantity {
 
@@ -22,12 +26,11 @@ public class MenuQuantity {
 
     private void validateQuantityRange(int quantity) {
         if (checkMinQuantity(quantity)) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(INVALID_MENU_QUANTITY_UNDER_ONE.getMessage());
         }
 
         if (checkMaxQuantity(quantity)) {
-            throw new IllegalArgumentException(String.format("[ERROR] 주문 수량은 최대 %d개 입니다. 다시 입력해 주세요.",
-                    MAX_ORDER_QUANTITY));
+            throw new IllegalArgumentException(INVALID_MAX_MENU_QUANTITY.getMessage());
         }
     }
 

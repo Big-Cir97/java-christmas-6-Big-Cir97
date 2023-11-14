@@ -1,8 +1,11 @@
 package christmas.model.order;
 
+import static christmas.exception.ErrorType.INVALID_MAX_MENU_QUANTITY;
+import static christmas.exception.ErrorType.INVALID_MENU_ONLY_DRINK;
 import static christmas.utils.Constants.MAX_ORDER_QUANTITY;
 import static christmas.utils.Constants.MIN_ORDER_MENU;
 
+import christmas.exception.ErrorType;
 import christmas.model.order.enums.Category;
 import christmas.model.order.enums.MenuInfo;
 import java.util.Collections;
@@ -66,13 +69,13 @@ public class OrderDetail {
 
         String name = menuName.getName();
         if (MenuInfo.findByMenuName(name).getCategory() == Category.BEVERAGE) {
-            throw new IllegalArgumentException("[ERROR] 음료만 주문할 수 없습니다.");
+            throw new IllegalArgumentException(INVALID_MENU_ONLY_DRINK.getMessage());
         }
     }
 
     private void validateMaxQuantity(int totalQuantity) {
         if (totalQuantity > MAX_ORDER_QUANTITY) {
-            throw new IllegalArgumentException(String.format("[ERROR] 메뉴는 최대 %d개까지만 주문할 수 있습니다.", MAX_ORDER_QUANTITY));
+            throw new IllegalArgumentException(INVALID_MAX_MENU_QUANTITY.getMessage());
         }
     }
 

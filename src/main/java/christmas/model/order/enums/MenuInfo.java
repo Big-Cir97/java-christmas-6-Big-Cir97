@@ -1,5 +1,8 @@
 package christmas.model.order.enums;
 
+import static christmas.exception.ErrorType.INVALID_MENU_NOT_EXIST;
+
+import christmas.exception.ErrorType;
 import java.util.Arrays;
 
 public enum MenuInfo {
@@ -52,8 +55,6 @@ public enum MenuInfo {
         return Arrays.stream(MenuInfo.values())
                 .filter(menuInfo -> menuInfo.getName().equals(name))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("[ERROR] 존재하지 않는 메뉴입니다."));
+                .orElseThrow(() -> new IllegalArgumentException(INVALID_MENU_NOT_EXIST.getMessage()));
     }
-
-    // todo : 계산 메소드 추가 고려
 }

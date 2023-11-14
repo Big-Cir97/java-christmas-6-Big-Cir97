@@ -1,5 +1,6 @@
 package christmas.model.calendar;
 
+import static christmas.exception.ErrorType.INVALID_DAY_OUT_OF_RANGE;
 import static christmas.model.calendar.enums.CalendarDate.CHRISTMAS;
 import static christmas.model.calendar.enums.CalendarDate.EVENT_MONTH;
 import static christmas.model.calendar.enums.CalendarDate.EVENT_YEAR;
@@ -8,6 +9,7 @@ import static christmas.model.calendar.enums.CalendarDate.SATURDAY;
 import static christmas.model.calendar.enums.CalendarDate.START_DAY;
 import static christmas.model.calendar.enums.CalendarDate.SUNDAY;
 
+import christmas.exception.ErrorType;
 import java.time.LocalDate;
 
 public class ChristmasEventCalendar implements Calendar {
@@ -51,7 +53,7 @@ public class ChristmasEventCalendar implements Calendar {
 
     private void validateDayRange(int visitDay) {
         if (visitDay < START_DAY.getNumber() || visitDay > CHRISTMAS.getNumber()) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(INVALID_DAY_OUT_OF_RANGE.getMessage());
         }
     }
 
