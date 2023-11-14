@@ -37,19 +37,18 @@ public class OrderDetail {
     }
 
     public List<MenuName> getMainMenu() {
-        return getOrderMenuName().entrySet().stream()
-                .filter(entry -> MenuInfo.findByMenuName(entry.getKey())
+        return getOrderMenuName().keySet().stream()
+                .filter(value -> MenuInfo.findByMenuName(value)
                         .getCategory() == Category.MAIN_COURSE)
-                .map(entry -> new MenuName(entry.getKey()))
+                .map(MenuName::new)
                 .toList();
     }
 
     public List<MenuName> getDesertMenu() {
-        orderMenu.getOrderMenu();
-        return getOrderMenuName().entrySet().stream()
-                .filter(entry -> MenuInfo.findByMenuName(entry.getKey())
+        return getOrderMenuName().keySet().stream()
+                .filter(value -> MenuInfo.findByMenuName(value)
                         .getCategory() == Category.DESSERT)
-                .map(entry -> new MenuName(entry.getKey()))
+                .map(MenuName::new)
                 .toList();
     }
 
@@ -64,7 +63,7 @@ public class OrderDetail {
     private void validateOnlyBeverage(OrderMenu orderMenu) {
         MenuName menuName = orderMenu.getOrderMenu().keySet().stream()
                 .findFirst()
-                .get();
+                .orElseThrow();
 
         String name = menuName.getName();
         if (MenuInfo.findByMenuName(name).getCategory() == Category.BEVERAGE) {
@@ -79,10 +78,8 @@ public class OrderDetail {
     }
 
     private int calculateTotalQuantity(OrderMenu orderMenu) {
-        int totalQuantity = orderMenu.getOrderMenu().values().stream()
+        return orderMenu.getOrderMenu().values().stream()
                 .mapToInt(MenuQuantity::getQuantity)
                 .sum();
-
-        return totalQuantity;
     }
 }
