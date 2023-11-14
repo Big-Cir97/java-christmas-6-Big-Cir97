@@ -56,7 +56,7 @@ public class ChristmasController {
     private Calendar initCalendar() {
         DataInitializer<Calendar> initializer = new DataInitializer<>(
                 () -> CalendarFactory.createCalendar(inputView.inputVisitDay()),
-                ex -> outputView.outputErrorMessage(ex)
+                outputView::outputErrorMessage
         );
         return initializer.initialize();
     }
@@ -68,7 +68,7 @@ public class ChristmasController {
                     OrderMenu orderMenu = createOrderMenu(inputOrderMenu);
                     return new OrderDetail(orderMenu);
                 },
-                ex -> outputView.outputErrorMessage(ex)
+                outputView::outputErrorMessage
         );
         return initializer.initialize();
     }

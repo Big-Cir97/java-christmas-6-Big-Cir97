@@ -31,10 +31,7 @@ public class EventResult {
     }
 
     public boolean checkNonDiscount() {
-        if (isAllDiscountZero()) {
-            return true;
-        }
-        return false;
+        return isAllDiscountZero();
     }
 
     private boolean isAllDiscountZero() {

@@ -82,9 +82,6 @@ public class DiscountFacade {
     }
 
     private boolean includeChristmasDiscount() {
-        if (calendar instanceof ChristmasEventCalendar) {
-            return true;
-        }
-        return false;
+        return calendar instanceof ChristmasEventCalendar;
     }
 }

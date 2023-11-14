@@ -18,7 +18,6 @@ public abstract class Constants {
     public static final String AMOUNT_SUFFIX = "원";
     public static final String QUANTITY_SUFFIX = "개";
 
-
     private Constants() {
         throw new NullPointerException(ERROR_PREFIX.getMessage());
     }

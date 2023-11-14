@@ -28,18 +28,11 @@ public class GeneralEventCalendar implements Calendar {
 
     public boolean isWeekend() {
         int visitDay = getDayOfWeek();
-        if (visitDay == FRIDAY.getNumber() || visitDay == SATURDAY.getNumber()) {
-            return true;
-        }
-        return false;
+        return visitDay == FRIDAY.getNumber() || visitDay == SATURDAY.getNumber();
     }
 
     public boolean isSpecialDay() {
-        if (isChristmas() || isSunday()) {
-            return true;
-        }
-
-        return false;
+        return isChristmas() || isSunday();
     }
 
     private void validate(int visitDay) {

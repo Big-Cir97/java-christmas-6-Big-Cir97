@@ -37,91 +37,86 @@ import java.util.Map;
 public class OutputView {
 
     public void outputPreview(Calendar calendar) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%d월 %d일", EVENT_MONTH.getNumber(), calendar.getDayOfMonth()))
-                .append(OUTPUT_PREVIEW_MESSAGE.getMessage())
-                .append(NEW_LINE);
-        System.out.println(sb);
+        String output = String.format("%d월 %d일", EVENT_MONTH.getNumber(), calendar.getDayOfMonth())
+                + OUTPUT_PREVIEW_MESSAGE.getMessage()
+                + NEW_LINE;
+        System.out.println(output);
     }
 
     public void outputOrderMenu(OrderDetail orderDetail) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(OUTPUT_ORDER_MENU_MESSAGE.getMessage()).append(NEW_LINE);
+        StringBuilder output = new StringBuilder();
+        output.append(OUTPUT_ORDER_MENU_MESSAGE.getMessage()).append(NEW_LINE);
 
         Map<String, Integer> orderMenu = orderDetail.getOrderMenuName();
         for (String menuName : orderMenu.keySet()) {
-            sb.append(menuName).append(BLANK)
+            output.append(menuName).append(BLANK)
                     .append(orderMenu.get(menuName))
                     .append(Constants.QUANTITY_SUFFIX)
                     .append(NEW_LINE);
         }
-        System.out.println(sb);
+        System.out.println(output);
     }
 
     public void outputBeforeDiscountOrderAmount(int totalOrderAmount) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(OUTPUT_BEFORE_DISCOUNT_TOTAL_AMOUNT_MESSAGE.getMessage()).append(NEW_LINE);
-        sb.append(formatComma(totalOrderAmount)).append(AMOUNT_SUFFIX).append(NEW_LINE);
-        System.out.println(sb);
+        String output = OUTPUT_BEFORE_DISCOUNT_TOTAL_AMOUNT_MESSAGE.getMessage() + NEW_LINE
+                + formatComma(totalOrderAmount) + AMOUNT_SUFFIX + NEW_LINE;
+        System.out.println(output);
     }
 
     public void outputGiveaway(EventResult eventResult) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(OUTPUT_GIVEAWAY_MENU_MESSAGE.getMessage()).append(NEW_LINE);
+        StringBuilder output = new StringBuilder();
+        output.append(OUTPUT_GIVEAWAY_MENU_MESSAGE.getMessage()).append(NEW_LINE);
 
         int giveawayDiscount = eventResult.getGiveawayDiscount();
         if (giveawayDiscount == NON_DISCOUNT.getDiscount()) {
-            sb.append(OUTPUT_NON_DISCOUNT_MESSAGE.getMessage()).append(NEW_LINE);
-            System.out.println(sb);
+            output.append(OUTPUT_NON_DISCOUNT_MESSAGE.getMessage()).append(NEW_LINE);
+            System.out.println(output);
             return;
         }
-        sb.append(CHAMPAGNE.getName()).append(BLANK)
+        output.append(CHAMPAGNE.getName()).append(BLANK)
                 .append(GIVEAWAY_QUANTITY).append(QUANTITY_SUFFIX).append(NEW_LINE);
-        System.out.println(sb);
+        System.out.println(output);
     }
 
     public void outputDiscountList(EventResult eventResult) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(OUTPUT_DISCOUNT_HISTORY_MESSAGE.getMessage()).append(NEW_LINE);
+        StringBuilder output = new StringBuilder();
+        output.append(OUTPUT_DISCOUNT_HISTORY_MESSAGE.getMessage()).append(NEW_LINE);
 
         if (eventResult.checkNonDiscount()) {
-            sb.append(OUTPUT_NON_DISCOUNT_MESSAGE.getMessage()).append(NEW_LINE);
-            System.out.println(sb);
+            output.append(OUTPUT_NON_DISCOUNT_MESSAGE.getMessage()).append(NEW_LINE);
+            System.out.println(output);
             return;
         }
-        sb.append(printChristmasDiscount(eventResult));
-        sb.append(printWeeksDaysDiscount(eventResult));
-        sb.append(printWeekendDiscount(eventResult));
-        sb.append(printSpecialDiscount(eventResult));
-        sb.append(printGiveawayDiscount(eventResult));
-        System.out.println(sb);
+        output.append(printChristmasDiscount(eventResult));
+        output.append(printWeeksDaysDiscount(eventResult));
+        output.append(printWeekendDiscount(eventResult));
+        output.append(printSpecialDiscount(eventResult));
+        output.append(printGiveawayDiscount(eventResult));
+        System.out.println(output);
     }
 
     public void outputTotalDiscount(int totalDiscount) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(OUTPUT_TOTAL_DISCOUNT_AMOUNT_MESSAGE.getMessage()).append(NEW_LINE);
+        StringBuilder output = new StringBuilder();
+        output.append(OUTPUT_TOTAL_DISCOUNT_AMOUNT_MESSAGE.getMessage()).append(NEW_LINE);
         if (totalDiscount == NON_DISCOUNT.getDiscount()) {
-            sb.append(formatComma(totalDiscount)).append(AMOUNT_SUFFIX).append(NEW_LINE);
-            System.out.println(sb);
+            output.append(formatComma(totalDiscount)).append(AMOUNT_SUFFIX).append(NEW_LINE);
+            System.out.println(output);
             return;
         }
-        sb.append(MINUS_OPERATOR).append(formatComma(totalDiscount)).append(AMOUNT_SUFFIX).append(NEW_LINE);
-        System.out.println(sb);
+        output.append(MINUS_OPERATOR).append(formatComma(totalDiscount)).append(AMOUNT_SUFFIX).append(NEW_LINE);
+        System.out.println(output);
     }
 
     public void outputAfterDiscountAmount(Payment payment, int beforeDiscountAmount, int totalDiscount) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(OUTPUT_AFTER_DISCOUNT_MESSAGE.getMessage()).append(NEW_LINE);;
-        sb.append(formatComma(payment.afterDiscountPayment(beforeDiscountAmount, totalDiscount)))
-                .append(NEW_LINE);
-        System.out.println(sb);
+        String output = OUTPUT_AFTER_DISCOUNT_MESSAGE.getMessage() + NEW_LINE
+                + formatComma(payment.afterDiscountPayment(beforeDiscountAmount, totalDiscount))
+                + NEW_LINE;
+        System.out.println(output);
     }
 
     public void outputBadge(BadgeInfo badgeInfo) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(OUTPUT_BADGE_MESSAGE.getMessage()).append(NEW_LINE)
-                .append(badgeInfo.getName());
-        System.out.print(sb);
+        String output = OUTPUT_BADGE_MESSAGE.getMessage() + NEW_LINE + badgeInfo.getName();
+        System.out.print(output);
     }
 
     public void outputErrorMessage(IllegalArgumentException ex) {
