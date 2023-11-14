@@ -43,7 +43,7 @@ class BadgeTest {
     }
 
     @Test
-    @DisplayName("아무 뱃지를 얻지 못한다..")
+    @DisplayName("아무 뱃지를 얻지 못한다.")
     void testNotAnyBadge() {
         int totalDiscountPrice = 4_444;
         Badge badge = new Badge();
