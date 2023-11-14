@@ -1,9 +1,8 @@
 package christmas.model.discount.facade;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
-import christmas.model.DiscountResult;
+import christmas.model.result.DiscountResult;
 import christmas.model.calendar.Calendar;
 import christmas.model.calendar.CalendarFactory;
 import christmas.model.order.MenuName;
@@ -12,7 +11,6 @@ import christmas.model.order.OrderDetail;
 import christmas.model.order.OrderMenu;
 import christmas.model.payment.Payment;
 import java.util.stream.Stream;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

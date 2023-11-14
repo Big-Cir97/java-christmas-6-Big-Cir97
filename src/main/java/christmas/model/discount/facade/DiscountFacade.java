@@ -4,9 +4,8 @@ import static christmas.enums.DiscountAmount.CAN_DISCOUNT_AMOUNT;
 import static christmas.enums.DiscountAmount.CAN_GIVEAWAY_DISCOUNT;
 import static christmas.enums.DiscountAmount.NON_DISCOUNT;
 
-import christmas.enums.DiscountAmount;
 import christmas.enums.MenuInfo;
-import christmas.model.DiscountResult;
+import christmas.model.result.DiscountResult;
 import christmas.model.calendar.Calendar;
 import christmas.model.calendar.ChristmasEventCalendar;
 import christmas.model.discount.ChristmasDiscount;
