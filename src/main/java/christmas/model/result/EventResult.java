@@ -2,19 +2,12 @@ package christmas.model.result;
 
 import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 
-import christmas.model.badge.Badge;
-import christmas.model.badge.enums.BadgeInfo;
-
 public class EventResult {
 
     private final DiscountResult discountResult;
 
     public EventResult(DiscountResult discountResult) {
         this.discountResult = discountResult;
-    }
-
-    public BadgeInfo getBadgeResult(Badge badge, int totalDiscountPrice) {
-        return badge.getBadgeName(totalDiscountPrice);
     }
 
     public int getChristmasDiscount() {
