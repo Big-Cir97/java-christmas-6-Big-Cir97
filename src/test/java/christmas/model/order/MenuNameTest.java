@@ -2,7 +2,6 @@ package christmas.model.order;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import christmas.model.order.MenuName;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,5 +16,4 @@ class MenuNameTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
     }
-
 }

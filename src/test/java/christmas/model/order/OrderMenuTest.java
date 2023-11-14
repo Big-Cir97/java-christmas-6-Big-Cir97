@@ -1,11 +1,8 @@
 package christmas.model.order;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import christmas.model.order.MenuName;
-import christmas.model.order.MenuQuantity;
-import christmas.model.order.OrderMenu;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -42,9 +39,8 @@ class OrderMenuTest {
 
         orderMenu.addMenu(menuName, menuQuantity);
 
-        String duplicatedName = name;
-        MenuName duplicatedMenu = new MenuName(duplicatedName);
-        Assertions.assertThatThrownBy(() -> orderMenu.addMenu(duplicatedMenu, menuQuantity))
+        MenuName duplicatedMenu = new MenuName(name);
+        assertThatThrownBy(() -> orderMenu.addMenu(duplicatedMenu, menuQuantity))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
     }

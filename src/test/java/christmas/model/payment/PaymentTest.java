@@ -2,11 +2,11 @@ package christmas.model.payment;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import christmas.model.order.enums.MenuInfo;
 import christmas.model.order.MenuName;
 import christmas.model.order.MenuQuantity;
 import christmas.model.order.OrderDetail;
 import christmas.model.order.OrderMenu;
+import christmas.model.order.enums.MenuInfo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -61,6 +61,5 @@ class PaymentTest {
 
         int expected = 14_2000 - 31_246 + 25_000;
         assertThat(payment.afterDiscountPayment(before, discount)).isEqualTo(expected);
-
     }
 }

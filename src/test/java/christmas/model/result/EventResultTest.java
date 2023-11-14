@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 class EventResultTest {
 
     @Test
-    @DisplayName("모든 할인이 0원이면 true를 반환한다.")
+    @DisplayName("모든 할인이 0원이면 참을 반환한다.")
     void testCheckAllDiscountIsZero() {
         int visitDay = 2;
         Calendar calendar = CalendarFactory.createCalendar(visitDay);
@@ -37,7 +37,7 @@ class EventResultTest {
         int nonDiscountOrderAmount = payment.beforeDiscountPayment(orderDetail);
         DiscountResult discountResult = new DiscountResult();
         discountFacade.getTotalDiscount(payment, discountResult);
-        EventResult eventResult = new EventResult(discountResult, payment,nonDiscountOrderAmount);
+        EventResult eventResult = new EventResult(discountResult, payment, nonDiscountOrderAmount);
 
         assertThat(eventResult.checkNonDiscount()).isFalse();
     }
@@ -71,7 +71,5 @@ class EventResultTest {
         assertThat(eventResult.getSpecialDiscount()).isEqualTo(discountResult.getSpecialDiscount());
         assertThat(eventResult.getWeekendDiscount()).isEqualTo(discountResult.getWeekendDiscount());
         assertThat(eventResult.getWeeksDaysDiscount()).isEqualTo(discountResult.getWeeksDaysDiscount());
-
     }
-
 }

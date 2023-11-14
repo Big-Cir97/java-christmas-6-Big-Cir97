@@ -6,7 +6,6 @@ import static org.assertj.core.api.Assertions.entry;
 
 import java.util.List;
 import java.util.Map;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -117,5 +116,4 @@ class OrderDetailTest {
         assertThat(orderDetail.getQuantityByMenu(new MenuName(soupName))).isEqualTo(5);
         assertThat(orderDetail.getQuantityByMenu(new MenuName(steakName))).isEqualTo(5);
     }
-
 }

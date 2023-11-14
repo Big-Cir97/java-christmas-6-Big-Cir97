@@ -1,10 +1,9 @@
 package christmas.model.calendar;
 
+import static christmas.exception.ErrorType.INVALID_DAY_OUT_OF_RANGE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -27,8 +26,7 @@ class ChristmasGeneralEventCalendarTest {
         int visitDay = 26;
 
         assertThatThrownBy(() -> new ChristmasEventCalendar(visitDay))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
     }
-
-
 }

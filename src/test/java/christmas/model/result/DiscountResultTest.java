@@ -40,6 +40,5 @@ class DiscountResultTest {
         assertThat(discountResult.getWeekendDiscount()).isEqualTo(weekendDiscount);
         assertThat(discountResult.getSpecialDiscount()).isEqualTo(specialDiscount);
         assertThat(discountResult.getWeeksDaysDiscount()).isEqualTo(weeksDaysDiscount);
-
     }
 }

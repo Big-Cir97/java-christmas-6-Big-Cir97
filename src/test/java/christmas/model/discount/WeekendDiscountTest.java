@@ -48,5 +48,4 @@ class WeekendDiscountTest {
 
         assertThat(weekendDiscount.calculateDiscount()).isEqualTo(expected);
     }
-
 }

@@ -1,7 +1,6 @@
 package christmas.model.discount;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import christmas.model.calendar.Calendar;
 import christmas.model.calendar.CalendarFactory;
@@ -49,6 +48,4 @@ class WeekdaysDiscountTest {
 
         assertThat(weekdaysDiscount.calculateDiscount()).isEqualTo(expected);
     }
-
-
 }
