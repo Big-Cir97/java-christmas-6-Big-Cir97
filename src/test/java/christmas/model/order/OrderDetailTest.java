@@ -71,16 +71,16 @@ class OrderDetailTest {
     @Test
     @DisplayName("주문 목록에서 메인 메뉴를 확인한다.")
     void testCheckMainCourse() {
-        String soupName = "티본스테이크";
-        int soupQuantity = 5;
-        orderMenu.addMenu(new MenuName(soupName), new MenuQuantity(soupQuantity));
+        String steakName = "티본스테이크";
+        int steakQuantity = 5;
+        orderMenu.addMenu(new MenuName(steakName), new MenuQuantity(steakQuantity));
 
         String drinkName = "레드와인";
         int drinkQuantity = 6;
         orderMenu.addMenu(new MenuName(drinkName), new MenuQuantity(drinkQuantity));
 
         OrderDetail orderDetail = new OrderDetail(orderMenu);
-        List<MenuName> mainCourse = List.of(new MenuName(soupName));
+        List<MenuName> mainCourse = List.of(new MenuName(steakName));
 
         assertThat(orderDetail.getMainMenu()).isEqualTo(mainCourse);
     }
@@ -100,6 +100,22 @@ class OrderDetailTest {
         List<MenuName> desert = List.of(new MenuName(desertName));
 
         assertThat(orderDetail.getDesertMenu()).isEqualTo(desert);
+    }
+
+    @Test
+    @DisplayName("메뉴 이름으로 주문 수량을 확인한다.")
+    void testCheckQuantityByMenuName() {
+        String soupName = "양송이수프";
+        int soupQuantity = 5;
+        orderMenu.addMenu(new MenuName(soupName), new MenuQuantity(soupQuantity));
+
+        String steakName = "티본스테이크";
+        int steakQuantity = 5;
+        orderMenu.addMenu(new MenuName(steakName), new MenuQuantity(steakQuantity));
+        OrderDetail orderDetail = new OrderDetail(orderMenu);
+
+        assertThat(orderDetail.getQuantityByMenu(new MenuName(soupName))).isEqualTo(5);
+        assertThat(orderDetail.getQuantityByMenu(new MenuName(steakName))).isEqualTo(5);
     }
 
 }
