@@ -19,6 +19,11 @@ public class GeneralEventCalendar implements Calendar {
         this.eventDate = LocalDate.of(EVENT_YEAR.getNumber(), EVENT_MONTH.getNumber(), visitDay);
     }
 
+    @Override
+    public int getDayOfMonth() {
+        return eventDate.getDayOfMonth();
+    }
+
     public boolean isWeekend() {
         int visitDay = getDayOfWeek();
         if (visitDay == FRIDAY.getNumber() || visitDay == SATURDAY.getNumber()) {
@@ -57,9 +62,4 @@ public class GeneralEventCalendar implements Calendar {
     private int getDayOfWeek() {
         return eventDate.getDayOfWeek().getValue();
     }
-
-    private int getDayOfMonth() {
-        return eventDate.getDayOfMonth();
-    }
-
 }

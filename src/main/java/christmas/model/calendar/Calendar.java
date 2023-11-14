@@ -2,7 +2,9 @@ package christmas.model.calendar;
 
 public interface Calendar {
 
-    public boolean isWeekend();
+    boolean isWeekend();
 
-    public boolean isSpecialDay();
+    boolean isSpecialDay();
+
+    int getDayOfMonth();
 }

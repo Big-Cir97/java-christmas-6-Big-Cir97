@@ -15,7 +15,7 @@ class GeneralEventCalendarTest {
         GeneralEventCalendar visitDay = new GeneralEventCalendar(25);
         boolean actual = visitDay.isWeekend();
 
-        assertThat(actual).isTrue();
+        assertThat(actual).isFalse();
     }
 
     @Test
