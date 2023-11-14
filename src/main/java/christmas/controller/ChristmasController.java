@@ -32,8 +32,8 @@ public class ChristmasController {
     public void visitRestaurant() {
         Calendar calendar = initCalendar();
         OrderDetail orderDetail = initOrderDetail();
-
         Payment payment = new Payment();
+
         int nonDiscountTotalOrderAmount = payment.beforeDiscountPayment(orderDetail);
 
         DiscountResult discountResult = new DiscountResult();

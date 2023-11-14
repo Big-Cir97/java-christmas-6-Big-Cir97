@@ -30,16 +30,32 @@ public class EventResult {
         return discountResult.getGiveawayDiscount();
     }
 
+    public boolean isNonChristmasDiscount() {
+        return discountResult.getChristmasDiscount() == NON_DISCOUNT.getDiscount();
+    }
+
+    public boolean isNonWeeksDaysDiscount() {
+        return discountResult.getWeeksDaysDiscount() == NON_DISCOUNT.getDiscount();
+    }
+
+    public boolean isNonWeekendDiscount() {
+        return discountResult.getWeekendDiscount() == NON_DISCOUNT.getDiscount();
+    }
+
+    public boolean isNonSpecialDiscount() {
+        return discountResult.getSpecialDiscount() == NON_DISCOUNT.getDiscount();
+    }
+
+    public boolean isNonGiveawayDiscount() {
+        return discountResult.getGiveawayDiscount() == NON_DISCOUNT.getDiscount();
+    }
+
     public boolean checkNonDiscount() {
-        return isAllDiscountZero();
+        return isNonAnyDiscount();
     }
 
-    private boolean isAllDiscountZero() {
-        return getChristmasDiscount() == NON_DISCOUNT.getDiscount() &&
-                getChristmasDiscount() == getWeekendDiscount() &&
-                getChristmasDiscount() == getWeekendDiscount() &&
-                getChristmasDiscount() == getSpecialDiscount() &&
-                getChristmasDiscount() == getGiveawayDiscount();
+    private boolean isNonAnyDiscount() {
+        return isNonChristmasDiscount() && isNonWeeksDaysDiscount() && isNonWeekendDiscount() &&
+                isNonGiveawayDiscount() && isNonGiveawayDiscount();
     }
-
 }

@@ -124,52 +124,47 @@ public class OutputView {
     }
 
     private String printChristmasDiscount(EventResult eventResult) {
-        int christmasDiscount = eventResult.getChristmasDiscount();
-        if (christmasDiscount == NON_DISCOUNT.getDiscount()) {
+        if (eventResult.isNonChristmasDiscount()) {
             return EMPTY;
         }
         return OUTPUT_CHRISTMAS_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + formatComma(christmasDiscount) + AMOUNT_SUFFIX
+                + formatComma(eventResult.getChristmasDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
     }
 
     private String printWeeksDaysDiscount(EventResult eventResult) {
-        int weeksDaysDiscount = eventResult.getWeeksDaysDiscount();
-        if (weeksDaysDiscount == NON_DISCOUNT.getDiscount()) {
+        if (eventResult.isNonWeeksDaysDiscount()) {
             return EMPTY;
         }
         return OUTPUT_WEEKSDAYS_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + formatComma(weeksDaysDiscount) + AMOUNT_SUFFIX
+                + formatComma(eventResult.getWeeksDaysDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
     }
 
     private String printWeekendDiscount(EventResult eventResult) {
-        int weekendDiscount = eventResult.getWeekendDiscount();
-        if (weekendDiscount == NON_DISCOUNT.getDiscount()) {
+        if (eventResult.isNonWeekendDiscount()) {
             return EMPTY;
         }
         return OUTPUT_WEEKEND_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + formatComma(weekendDiscount) + AMOUNT_SUFFIX
+                + formatComma(eventResult.getWeekendDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
     }
 
     private String printSpecialDiscount(EventResult eventResult) {
-        int specialDiscount = eventResult.getSpecialDiscount();
-        if (specialDiscount == NON_DISCOUNT.getDiscount()) {
+        if (eventResult.isNonSpecialDiscount()) {
             return EMPTY;
         }
         return OUTPUT_SPECIAL_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + formatComma(specialDiscount) + AMOUNT_SUFFIX
+                + formatComma(eventResult.getSpecialDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
     }
 
     private String printGiveawayDiscount(EventResult eventResult) {
-        int giveawayDiscount = eventResult.getGiveawayDiscount();
-        if (giveawayDiscount == NON_DISCOUNT.getDiscount()) {
+        if (eventResult.isNonGiveawayDiscount()) {
             return EMPTY;
         }
         return OUTPUT_GIVEAWAY_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + formatComma(giveawayDiscount) + AMOUNT_SUFFIX
+                + formatComma(eventResult.getGiveawayDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
     }
 
