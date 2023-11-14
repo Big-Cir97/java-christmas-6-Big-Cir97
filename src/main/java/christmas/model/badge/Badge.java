@@ -4,7 +4,7 @@ import christmas.enums.BadgeInfo;
 
 public class Badge {
 
-    public String getBadgeName(int totalDiscountPrice) {
+    public BadgeInfo getBadgeName(int totalDiscountPrice) {
         return BadgeInfo.findBadgeByPrice(totalDiscountPrice);
     }
 }
