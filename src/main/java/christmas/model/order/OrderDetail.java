@@ -37,18 +37,14 @@ public class OrderDetail {
     }
 
     public List<MenuName> getMainMenu() {
-        return getOrderMenuName().keySet().stream()
-                .filter(value -> MenuInfo.findByMenuName(value)
-                        .getCategory() == Category.MAIN_COURSE)
-                .map(MenuName::new)
+        return orderMenu.getOrderMenu().keySet().stream()
+                .filter(orderMenu::containMainMenu)
                 .toList();
     }
 
     public List<MenuName> getDesertMenu() {
-        return getOrderMenuName().keySet().stream()
-                .filter(value -> MenuInfo.findByMenuName(value)
-                        .getCategory() == Category.DESSERT)
-                .map(MenuName::new)
+        return orderMenu.getOrderMenu().keySet().stream()
+                .filter(orderMenu::containDesertMenu)
                 .toList();
     }
 

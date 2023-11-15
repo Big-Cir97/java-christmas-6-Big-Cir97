@@ -2,6 +2,8 @@ package christmas.model.order;
 
 import static christmas.exception.ErrorType.INVALID_MENU_NAME;
 
+import christmas.model.order.enums.Category;
+import christmas.model.order.enums.MenuInfo;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +22,16 @@ public class OrderMenu {
 
     public int getMenuQuantity(MenuName menuName) {
         return orderMenu.get(menuName).getQuantity();
+    }
+
+    public boolean containMainMenu(MenuName menuName) {
+        String menu = menuName.getName();
+        return MenuInfo.findByMenuName(menu).getCategory() == Category.MAIN_COURSE;
+    }
+
+    public boolean containDesertMenu(MenuName menuName) {
+        String menu = menuName.getName();
+        return MenuInfo.findByMenuName(menu).getCategory() == Category.DESSERT;
     }
 
     public void addMenu(MenuName menuName, MenuQuantity menuQuantity) {
