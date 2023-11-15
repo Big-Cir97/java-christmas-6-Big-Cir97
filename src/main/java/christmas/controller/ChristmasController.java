@@ -44,13 +44,13 @@ public class ChristmasController {
         DiscountFacade discountFacade = new DiscountFacade(calendar, orderDetail);
         int totalDiscount = discountFacade.calculateTotalDiscount(payment, discountResult);
 
-        BadgeInfo badgeName = new Badge().getBadgeName(totalDiscount);
+        Badge badge = new Badge(totalDiscount);
         EventResult eventResult = new EventResult(discountResult, payment, nonDiscountOrderAmount);
 
         outputView.printPreview(calendar);
         outputView.printOrderMenu(orderDetail);
         outputView.printEventDiscount(eventResult, totalDiscount);
-        outputView.printEventBadge(badgeName);
+        outputView.printEventBadge(badge);
     }
 
     private Calendar initCalendar() {

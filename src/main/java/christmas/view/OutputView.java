@@ -25,6 +25,7 @@ import static christmas.view.enums.OutputMessage.OUTPUT_TOTAL_DISCOUNT_AMOUNT_ME
 import static christmas.view.enums.OutputMessage.OUTPUT_WEEKEND_DISCOUNT_MESSAGE;
 import static christmas.view.enums.OutputMessage.OUTPUT_WEEKSDAYS_DISCOUNT_MESSAGE;
 
+import christmas.model.badge.Badge;
 import christmas.model.badge.enums.BadgeInfo;
 import christmas.model.calendar.Calendar;
 import christmas.model.order.OrderDetail;
@@ -64,8 +65,8 @@ public class OutputView {
         printAfterDiscountAmount(eventResult, totalDiscount);
     }
 
-    public void printEventBadge(BadgeInfo badgeInfo) {
-        String output = OUTPUT_BADGE_MESSAGE.getMessage() + NEW_LINE + badgeInfo.getName();
+    public void printEventBadge(Badge badge) {
+        String output = OUTPUT_BADGE_MESSAGE.getMessage() + NEW_LINE + badge.getBadgeName();
         System.out.print(output);
     }
 
