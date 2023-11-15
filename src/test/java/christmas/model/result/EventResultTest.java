@@ -36,7 +36,7 @@ class EventResultTest {
         Payment payment = new Payment();
         int nonDiscountOrderAmount = payment.beforeDiscountPayment(orderDetail);
         DiscountResult discountResult = new DiscountResult();
-        discountFacade.getTotalDiscount(payment, discountResult);
+        discountFacade.calculateTotalDiscount(payment, discountResult);
         EventResult eventResult = new EventResult(discountResult, payment, nonDiscountOrderAmount);
 
         assertThat(eventResult.checkNonDiscount()).isFalse();
@@ -63,7 +63,7 @@ class EventResultTest {
         Payment payment = new Payment();
         int nonDiscountOrderAmount = payment.beforeDiscountPayment(orderDetail);
         DiscountResult discountResult = new DiscountResult();
-        discountFacade.getTotalDiscount(payment, discountResult);
+        discountFacade.calculateTotalDiscount(payment, discountResult);
         EventResult eventResult = new EventResult(discountResult, payment, nonDiscountOrderAmount);
 
         assertThat(eventResult.getChristmasDiscount()).isEqualTo(discountResult.getChristmasDiscount());

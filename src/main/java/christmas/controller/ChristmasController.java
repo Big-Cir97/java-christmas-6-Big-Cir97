@@ -42,7 +42,7 @@ public class ChristmasController {
 
         DiscountResult discountResult = new DiscountResult();
         DiscountFacade discountFacade = new DiscountFacade(calendar, orderDetail);
-        int totalDiscount = discountFacade.getTotalDiscount(payment, discountResult);
+        int totalDiscount = discountFacade.calculateTotalDiscount(payment, discountResult);
 
         BadgeInfo badgeName = new Badge().getBadgeName(totalDiscount);
         EventResult eventResult = new EventResult(discountResult, payment, nonDiscountOrderAmount);

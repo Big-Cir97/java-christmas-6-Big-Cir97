@@ -42,7 +42,7 @@ class DiscountFacadeTest {
         DiscountFacade discountFacade = new DiscountFacade(calendar, orderDetail);
         int expected = 0;
 
-        assertThat(discountFacade.getTotalDiscount(payment, discountResult)).isEqualTo(expected);
+        assertThat(discountFacade.calculateTotalDiscount(payment, discountResult)).isEqualTo(expected);
     }
 
     @ParameterizedTest
@@ -58,7 +58,7 @@ class DiscountFacadeTest {
 
         DiscountFacade discountFacade = new DiscountFacade(calendar, orderDetail);
 
-        assertThat(discountFacade.getTotalDiscount(payment, discountResult)).isEqualTo(expected);
+        assertThat(discountFacade.calculateTotalDiscount(payment, discountResult)).isEqualTo(expected);
     }
 
     @ParameterizedTest
@@ -74,7 +74,7 @@ class DiscountFacadeTest {
 
         DiscountFacade discountFacade = new DiscountFacade(calendar, orderDetail);
 
-        assertThat(discountFacade.getTotalDiscount(payment, discountResult)).isEqualTo(expected);
+        assertThat(discountFacade.calculateTotalDiscount(payment, discountResult)).isEqualTo(expected);
     }
 
     @ParameterizedTest
@@ -90,7 +90,7 @@ class DiscountFacadeTest {
         OrderDetail orderDetail = new OrderDetail(orderMenu);
         DiscountFacade discountFacade = new DiscountFacade(calendar, orderDetail);
 
-        assertThat(discountFacade.getTotalDiscount(payment, discountResult)).isEqualTo(expected);
+        assertThat(discountFacade.calculateTotalDiscount(payment, discountResult)).isEqualTo(expected);
     }
 
     static Stream<Arguments> testArgumentDiscountGiveaway() {

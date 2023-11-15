@@ -1,11 +1,9 @@
 package christmas.model.discount.facade;
 
 import static christmas.model.discount.enums.DiscountAmount.CAN_DISCOUNT_AMOUNT;
-import static christmas.model.discount.enums.DiscountAmount.CAN_GIVEAWAY_DISCOUNT;
 import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 
 import christmas.model.discount.GiveawayDiscount;
-import christmas.model.order.enums.MenuInfo;
 import christmas.model.result.DiscountResult;
 import christmas.model.calendar.Calendar;
 import christmas.model.calendar.ChristmasEventCalendar;
@@ -27,7 +25,7 @@ public class DiscountFacade {
         this.orderDetail = orderDetail;
     }
 
-    public int getTotalDiscount(Payment payment, DiscountResult discountResult) {
+    public int calculateTotalDiscount(Payment payment, DiscountResult discountResult) {
         if (!canDiscount(payment)) {
             return NON_DISCOUNT.getDiscount();
         }
@@ -46,35 +44,35 @@ public class DiscountFacade {
     }
 
     private int basicDiscount(Payment payment, DiscountResult discountResult) {
-        int weekendAmount = weekendDiscount();
-        int weekdaysAmount = weekdaysDiscount();
-        int specialAmount = specialDiscount();
-        int giveawayAmount = giveawayDiscount(payment);
+        int weekendAmount = calculateWeekendDiscount();
+        int weekdaysAmount = calculateWeekdaysDiscount();
+        int specialAmount = calculateSpecialDiscount();
+        int giveawayAmount = calculateGiveawayDiscount(payment);
 
         discountResult.updateWeekendDiscount(weekendAmount);
         discountResult.updateWeeksDaysDiscount(weekdaysAmount);
-        discountResult.updateSpecialDiscount(specialDiscount());
+        discountResult.updateSpecialDiscount(calculateSpecialDiscount());
         discountResult.updateGiveawayDiscount(giveawayAmount);
 
         return weekendAmount + weekdaysAmount + specialAmount + giveawayAmount;
     }
 
-    private int weekendDiscount() {
+    private int calculateWeekendDiscount() {
         WeekendDiscount weekendDiscount = new WeekendDiscount(calendar, orderDetail);
         return weekendDiscount.calculateDiscount();
     }
 
-    private int weekdaysDiscount() {
+    private int calculateWeekdaysDiscount() {
         WeekdaysDiscount weekdaysDiscount = new WeekdaysDiscount(calendar, orderDetail);
         return weekdaysDiscount.calculateDiscount();
     }
 
-    private int specialDiscount() {
+    private int calculateSpecialDiscount() {
         SpecialDiscount specialDiscount = new SpecialDiscount(calendar);
         return specialDiscount.calculateDiscount();
     }
 
-    private int giveawayDiscount(Payment payment) {
+    private int calculateGiveawayDiscount(Payment payment) {
         GiveawayDiscount giveawayDiscount = new GiveawayDiscount(payment.beforeDiscountPayment(orderDetail));
         return giveawayDiscount.calculateDiscount();
     }
