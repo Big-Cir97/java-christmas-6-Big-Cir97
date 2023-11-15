@@ -1,4 +1,4 @@
-package christmas.model.payment;
+package christmas.utils;
 
 import static christmas.model.discount.enums.DiscountAmount.CAN_GIVEAWAY_DISCOUNT;
 import static christmas.model.order.enums.MenuInfo.CHAMPAGNE;

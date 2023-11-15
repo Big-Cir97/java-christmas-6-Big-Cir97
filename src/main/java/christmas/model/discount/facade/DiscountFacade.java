@@ -12,7 +12,7 @@ import christmas.model.discount.SpecialDiscount;
 import christmas.model.discount.WeekdaysDiscount;
 import christmas.model.discount.WeekendDiscount;
 import christmas.model.order.OrderDetail;
-import christmas.model.payment.Payment;
+import christmas.utils.Payment;
 
 public class DiscountFacade {
 

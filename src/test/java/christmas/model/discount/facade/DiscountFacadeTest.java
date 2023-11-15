@@ -8,7 +8,7 @@ import christmas.model.order.MenuName;
 import christmas.model.order.MenuQuantity;
 import christmas.model.order.OrderDetail;
 import christmas.model.order.OrderMenu;
-import christmas.model.payment.Payment;
+import christmas.utils.Payment;
 import christmas.model.result.DiscountResult;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;

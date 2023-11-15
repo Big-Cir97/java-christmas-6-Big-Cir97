@@ -2,7 +2,7 @@ package christmas.model.result;
 
 import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 
-import christmas.model.payment.Payment;
+import christmas.utils.Payment;
 
 public class EventResult {
 
