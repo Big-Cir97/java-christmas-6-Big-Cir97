@@ -47,16 +47,16 @@ public class ChristmasController {
         BadgeInfo badgeName = new Badge().getBadgeName(totalDiscount);
         EventResult eventResult = new EventResult(discountResult, payment, nonDiscountOrderAmount);
 
-        outputView.outputPreview(calendar);
-        outputView.outputOrderMenu(orderDetail);
-        outputView.outputRelationDiscount(eventResult, totalDiscount);
-        outputView.outputBadge(badgeName);
+        outputView.printPreview(calendar);
+        outputView.printOrderMenu(orderDetail);
+        outputView.printEventDiscount(eventResult, totalDiscount);
+        outputView.printEventBadge(badgeName);
     }
 
     private Calendar initCalendar() {
         DataInitializer<Calendar> initializer = new DataInitializer<>(
                 () -> CalendarFactory.createCalendar(inputView.inputVisitDay()),
-                outputView::outputErrorMessage
+                outputView::printErrorMessage
         );
         return initializer.initialize();
     }
@@ -68,7 +68,7 @@ public class ChristmasController {
                     OrderMenu orderMenu = createOrderMenu(inputOrderMenu);
                     return new OrderDetail(orderMenu);
                 },
-                outputView::outputErrorMessage
+                outputView::printErrorMessage
         );
         return initializer.initialize();
     }

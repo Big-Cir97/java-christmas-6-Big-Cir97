@@ -31,19 +31,18 @@ import christmas.model.order.OrderDetail;
 import christmas.model.result.EventResult;
 import christmas.utils.Constants;
 import christmas.utils.Converter;
-import java.text.DecimalFormat;
 import java.util.Map;
 
 public class OutputView {
 
-    public void outputPreview(Calendar calendar) {
+    public void printPreview(Calendar calendar) {
         String output = String.format("%d월 %d일", EVENT_MONTH.getNumber(), calendar.getDayOfMonth())
                 + OUTPUT_PREVIEW_MESSAGE.getMessage()
                 + NEW_LINE;
         System.out.println(output);
     }
 
-    public void outputOrderMenu(OrderDetail orderDetail) {
+    public void printOrderMenu(OrderDetail orderDetail) {
         StringBuilder output = new StringBuilder();
         output.append(OUTPUT_ORDER_MENU_MESSAGE.getMessage()).append(NEW_LINE);
 
@@ -57,21 +56,30 @@ public class OutputView {
         System.out.println(output);
     }
 
-    public void outputRelationDiscount(EventResult eventResult, int totalDiscount) {
-        outputBeforeDiscountOrderAmount(eventResult);
-        outputGiveaway(eventResult);
-        outputDiscountList(eventResult);
-        outputTotalDiscount(totalDiscount);
-        outputAfterDiscountAmount(eventResult, totalDiscount);
+    public void printEventDiscount(EventResult eventResult, int totalDiscount) {
+        printBeforeDiscountOrderAmount(eventResult);
+        printGiveaway(eventResult);
+        printDiscountList(eventResult);
+        printTotalDiscount(totalDiscount);
+        printAfterDiscountAmount(eventResult, totalDiscount);
     }
 
-    private void outputBeforeDiscountOrderAmount(EventResult eventResult) {
+    public void printEventBadge(BadgeInfo badgeInfo) {
+        String output = OUTPUT_BADGE_MESSAGE.getMessage() + NEW_LINE + badgeInfo.getName();
+        System.out.print(output);
+    }
+
+    public void printErrorMessage(IllegalArgumentException ex) {
+        System.out.println(ex.getMessage());
+    }
+
+    private void printBeforeDiscountOrderAmount(EventResult eventResult) {
         String output = OUTPUT_BEFORE_DISCOUNT_TOTAL_AMOUNT_MESSAGE.getMessage() + NEW_LINE
                 + Converter.toThousandWonFormmat(eventResult.getNonDiscountOrderAmount()) + AMOUNT_SUFFIX + NEW_LINE;
         System.out.println(output);
     }
 
-    private void outputGiveaway(EventResult eventResult) {
+    private void printGiveaway(EventResult eventResult) {
         StringBuilder output = new StringBuilder();
         output.append(OUTPUT_GIVEAWAY_MENU_MESSAGE.getMessage()).append(NEW_LINE);
 
@@ -86,7 +94,7 @@ public class OutputView {
         System.out.println(output);
     }
 
-    private void outputDiscountList(EventResult eventResult) {
+    private void printDiscountList(EventResult eventResult) {
         StringBuilder output = new StringBuilder();
         output.append(OUTPUT_DISCOUNT_HISTORY_MESSAGE.getMessage()).append(NEW_LINE);
 
@@ -103,7 +111,7 @@ public class OutputView {
         System.out.println(output);
     }
 
-    private void outputTotalDiscount(int totalDiscount) {
+    private void printTotalDiscount(int totalDiscount) {
         StringBuilder output = new StringBuilder();
         output.append(OUTPUT_TOTAL_DISCOUNT_AMOUNT_MESSAGE.getMessage()).append(NEW_LINE);
         if (totalDiscount == NON_DISCOUNT.getDiscount()) {
@@ -117,7 +125,7 @@ public class OutputView {
         System.out.println(output);
     }
 
-    private void outputAfterDiscountAmount(EventResult eventResult, int totalDiscount) {
+    private void printAfterDiscountAmount(EventResult eventResult, int totalDiscount) {
         String output = OUTPUT_AFTER_DISCOUNT_MESSAGE.getMessage() + NEW_LINE
                 + Converter.toThousandWonFormmat(
                         eventResult.getPayment().afterDiscountPayment(
@@ -125,15 +133,6 @@ public class OutputView {
                 )
                 + AMOUNT_SUFFIX + NEW_LINE;
         System.out.println(output);
-    }
-
-    public void outputBadge(BadgeInfo badgeInfo) {
-        String output = OUTPUT_BADGE_MESSAGE.getMessage() + NEW_LINE + badgeInfo.getName();
-        System.out.print(output);
-    }
-
-    public void outputErrorMessage(IllegalArgumentException ex) {
-        System.out.println(ex.getMessage());
     }
 
     private String printChristmasDiscount(EventResult eventResult) {
