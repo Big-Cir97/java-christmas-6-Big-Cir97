@@ -1,9 +1,11 @@
 package christmas.model.discount;
 
 
+import static christmas.exception.ErrorType.INVALID_ORDER_AMOUNT;
 import static christmas.model.discount.enums.DiscountAmount.CAN_GIVEAWAY_DISCOUNT;
 import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 
+import christmas.exception.ErrorType;
 import christmas.model.order.enums.MenuInfo;
 
 public class GiveawayDiscount implements Discount {
@@ -12,6 +14,12 @@ public class GiveawayDiscount implements Discount {
 
     public GiveawayDiscount(int totalOrderAmount) {
         this.totalOrderAmount = totalOrderAmount;
+    }
+
+    private void validateOrderAmount(int totalOrderAmount) {
+        if (totalOrderAmount < NON_DISCOUNT.getDiscount()) {
+            throw new IllegalArgumentException(INVALID_ORDER_AMOUNT.getMessage());
+        }
     }
 
     @Override

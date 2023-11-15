@@ -10,6 +10,7 @@ import static christmas.utils.Constants.GIVEAWAY_QUANTITY;
 import static christmas.utils.Constants.MINUS_OPERATOR;
 import static christmas.utils.Constants.NEW_LINE;
 import static christmas.utils.Constants.QUANTITY_SUFFIX;
+import static christmas.utils.Converter.toThousandWonFormmat;
 import static christmas.view.enums.OutputMessage.OUTPUT_AFTER_DISCOUNT_MESSAGE;
 import static christmas.view.enums.OutputMessage.OUTPUT_BADGE_MESSAGE;
 import static christmas.view.enums.OutputMessage.OUTPUT_BEFORE_DISCOUNT_TOTAL_AMOUNT_MESSAGE;
@@ -76,7 +77,7 @@ public class OutputView {
 
     private void printBeforeDiscountOrderAmount(EventResult eventResult) {
         String output = OUTPUT_BEFORE_DISCOUNT_TOTAL_AMOUNT_MESSAGE.getMessage() + NEW_LINE
-                + Converter.toThousandWonFormmat(eventResult.getNonDiscountOrderAmount()) + AMOUNT_SUFFIX + NEW_LINE;
+                + toThousandWonFormmat(eventResult.getNonDiscountOrderAmount()) + AMOUNT_SUFFIX + NEW_LINE;
         System.out.println(output);
     }
 
@@ -84,8 +85,7 @@ public class OutputView {
         StringBuilder output = new StringBuilder();
         output.append(OUTPUT_GIVEAWAY_MENU_MESSAGE.getMessage()).append(NEW_LINE);
 
-        int giveawayDiscount = eventResult.getGiveawayDiscount();
-        if (giveawayDiscount == NON_DISCOUNT.getDiscount()) {
+        if (eventResult.isNonGiveawayDiscount()) {
             output.append(OUTPUT_NON_DISCOUNT_MESSAGE.getMessage()).append(NEW_LINE);
             System.out.println(output);
             return;
@@ -120,19 +120,19 @@ public class OutputView {
         StringBuilder output = new StringBuilder();
         output.append(OUTPUT_TOTAL_DISCOUNT_AMOUNT_MESSAGE.getMessage()).append(NEW_LINE);
         if (totalDiscount == NON_DISCOUNT.getDiscount()) {
-            output.append(Converter.toThousandWonFormmat(totalDiscount))
+            output.append(toThousandWonFormmat(totalDiscount))
                   .append(AMOUNT_SUFFIX).append(NEW_LINE);
             System.out.println(output);
             return;
         }
-        output.append(MINUS_OPERATOR).append(Converter.toThousandWonFormmat(totalDiscount))
+        output.append(MINUS_OPERATOR).append(toThousandWonFormmat(totalDiscount))
               .append(AMOUNT_SUFFIX).append(NEW_LINE);
         System.out.println(output);
     }
 
     private void printAfterDiscountAmount(EventResult eventResult, int totalDiscount) {
         String output = OUTPUT_AFTER_DISCOUNT_MESSAGE.getMessage() + NEW_LINE
-                + Converter.toThousandWonFormmat(
+                + toThousandWonFormmat(
                         eventResult.getPayment().afterDiscountPayment(
                                 eventResult.getNonDiscountOrderAmount(), totalDiscount)
                 )
@@ -145,7 +145,7 @@ public class OutputView {
             return EMPTY;
         }
         return OUTPUT_CHRISTMAS_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + Converter.toThousandWonFormmat(eventResult.getChristmasDiscount()) + AMOUNT_SUFFIX
+                + toThousandWonFormmat(eventResult.getChristmasDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
     }
 
@@ -154,7 +154,7 @@ public class OutputView {
             return EMPTY;
         }
         return OUTPUT_WEEKSDAYS_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + Converter.toThousandWonFormmat(eventResult.getWeeksDaysDiscount()) + AMOUNT_SUFFIX
+                + toThousandWonFormmat(eventResult.getWeeksDaysDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
     }
 
@@ -163,7 +163,7 @@ public class OutputView {
             return EMPTY;
         }
         return OUTPUT_WEEKEND_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + Converter.toThousandWonFormmat(eventResult.getWeekendDiscount()) + AMOUNT_SUFFIX
+                + toThousandWonFormmat(eventResult.getWeekendDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
     }
 
@@ -172,7 +172,7 @@ public class OutputView {
             return EMPTY;
         }
         return OUTPUT_SPECIAL_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + Converter.toThousandWonFormmat(eventResult.getSpecialDiscount()) + AMOUNT_SUFFIX
+                + toThousandWonFormmat(eventResult.getSpecialDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
     }
 
@@ -181,7 +181,7 @@ public class OutputView {
             return EMPTY;
         }
         return OUTPUT_GIVEAWAY_DISCOUNT_MESSAGE.getMessage() + MINUS_OPERATOR
-                + Converter.toThousandWonFormmat(eventResult.getGiveawayDiscount()) + AMOUNT_SUFFIX
+                + toThousandWonFormmat(eventResult.getGiveawayDiscount()) + AMOUNT_SUFFIX
                 + NEW_LINE;
     }
 }
