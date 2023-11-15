@@ -104,12 +104,16 @@ public class OutputView {
             System.out.println(output);
             return;
         }
+        printAllDiscountType(eventResult, output);
+        System.out.println(output);
+    }
+
+    private void printAllDiscountType(EventResult eventResult, StringBuilder output) {
         output.append(printChristmasDiscount(eventResult));
         output.append(printWeeksDaysDiscount(eventResult));
         output.append(printWeekendDiscount(eventResult));
         output.append(printSpecialDiscount(eventResult));
         output.append(printGiveawayDiscount(eventResult));
-        System.out.println(output);
     }
 
     private void printTotalDiscount(int totalDiscount) {
