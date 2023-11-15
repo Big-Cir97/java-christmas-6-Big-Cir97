@@ -3,8 +3,6 @@ package christmas.exception;
 import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 import static christmas.utils.Constants.MAX_ORDER_QUANTITY;
 
-import christmas.model.discount.enums.DiscountAmount;
-
 public enum ErrorType {
 
     ERROR_PREFIX("[ERROR] "),

@@ -5,7 +5,6 @@ import static christmas.exception.ErrorType.INVALID_ORDER_AMOUNT;
 import static christmas.model.discount.enums.DiscountAmount.CAN_GIVEAWAY_DISCOUNT;
 import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 
-import christmas.exception.ErrorType;
 import christmas.model.order.enums.MenuInfo;
 
 public class GiveawayDiscount implements Discount {
@@ -13,6 +12,7 @@ public class GiveawayDiscount implements Discount {
     private final int totalOrderAmount;
 
     public GiveawayDiscount(int totalOrderAmount) {
+        validateOrderAmount(totalOrderAmount);
         this.totalOrderAmount = totalOrderAmount;
     }
 
