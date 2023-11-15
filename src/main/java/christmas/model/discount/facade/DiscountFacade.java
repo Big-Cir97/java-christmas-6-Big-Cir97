@@ -4,6 +4,7 @@ import static christmas.model.discount.enums.DiscountAmount.CAN_DISCOUNT_AMOUNT;
 import static christmas.model.discount.enums.DiscountAmount.CAN_GIVEAWAY_DISCOUNT;
 import static christmas.model.discount.enums.DiscountAmount.NON_DISCOUNT;
 
+import christmas.model.discount.GiveawayDiscount;
 import christmas.model.order.enums.MenuInfo;
 import christmas.model.result.DiscountResult;
 import christmas.model.calendar.Calendar;
@@ -74,11 +75,8 @@ public class DiscountFacade {
     }
 
     private int giveawayDiscount(Payment payment) {
-        int beforeDiscountPayment = payment.beforeDiscountPayment(orderDetail);
-        if (beforeDiscountPayment < CAN_GIVEAWAY_DISCOUNT.getDiscount()) {
-            return NON_DISCOUNT.getDiscount();
-        }
-        return MenuInfo.CHAMPAGNE.getPrice();
+        GiveawayDiscount giveawayDiscount = new GiveawayDiscount(payment.beforeDiscountPayment(orderDetail));
+        return giveawayDiscount.calculateDiscount();
     }
 
     private boolean includeChristmasDiscount() {
